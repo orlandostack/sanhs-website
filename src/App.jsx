@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
+import Hero from "./modules/Hero/Hero";
 import GlobalStyle from "./styles/Global";
 import styled from "styled-components";
 
@@ -18,9 +19,7 @@ function App() {
     <>
       <GlobalStyle />
       <Navbar />
-      <Section id="hero" $bg="#80c070">
-        Hero
-      </Section>
+      <Hero />
       <Section id="about">About</Section>
       <Section id="blogs">Blogs</Section>
       <Section id="announcement">Announcements</Section>
