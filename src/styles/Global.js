@@ -34,13 +34,21 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
+  li {
+    list-style: none;
+  }
+
+  button {
+    border: none;
+    background-color: ${theme.color.transparent};
+  }
+
   svg, img {
     display: block;
     max-width: 100%;
     height: auto;
   }
 
-  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -60,7 +68,6 @@ const GlobalStyle = createGlobalStyle`
     background: ${theme.color.primaryDark};
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     * {
       animation-duration: 0.01ms !important;
@@ -69,23 +76,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  /* Container utility */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
-  @media (max-width: 768px) {
-    html { font-size: 14px; }
-    button, a { min-height: 44px; min-width: 44px; }
-  }
-
-  @media (max-width: 480px) {
-    html { font-size: 13px; }
-  }
-
-  button, a, .nav-item {
+  button, a {
     transition: all 0.3s ease;
   }
 
