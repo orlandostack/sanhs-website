@@ -1,7 +1,7 @@
 export const breakpoint = {
-  mobile: "only screen and (max-width: 768px)",
-  tablet: "only screen and (min-width: 769px) and (max-width: 1024px)",
-  desktop: "only screen and (min-width: 1025px)",
+  mobile: "only screen and (max-width: 767px)",
+  tablet: "only screen and (min-width: 768px) and (max-width: 1279px)",
+  desktop: "only screen and (min-width: 1280px)",
 };
 
 export const media = {
@@ -15,10 +15,10 @@ export const color = {
   white: "#ffffff",
   black: "#111111",
 
-  primary: "#0e3b1d",
+  primary: "#003400",
   primaryLight: "#145b2a",
   primaryDark: "#062110",
-  primaryAccent: "#80c070",
+  primaryAccent: "#25810dff",
 
   gray: {
     100: "#f2f5f2",

@@ -1,5 +1,4 @@
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./modules/Hero/Hero";
+import LandingPage from "./pages/LandingPage";
 import GlobalStyle from "./styles/Global";
 import styled from "styled-components";
 
@@ -18,8 +17,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Navbar />
-      <Hero />
+      <LandingPage />
       <Section id="about">About</Section>
       <Section id="blogs">Blogs</Section>
       <Section id="announcement">Announcements</Section>

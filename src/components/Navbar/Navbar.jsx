@@ -33,7 +33,7 @@ const Navbar = memo(() => {
 
   return (
     <S.NavbarWrapper $scrolled={isScrolled}>
-      {/* Logo + Brand */}
+      {/* Logo & Brand */}
       <S.Container $gap="10px">
         <S.Logo src={navbarData.logo} alt="sanhs logo" />
 
@@ -50,7 +50,7 @@ const Navbar = memo(() => {
             <Link
               to={link.to}
               smooth
-              duration={500}
+              duration={1000}
               spy
               offset={-70}
               onClick={() => setIsMenuOpen(false)}
@@ -62,11 +62,11 @@ const Navbar = memo(() => {
       </S.Navlinks>
 
       {/* Mobile Toggle */}
-      <S.MenuButton onClick={toggleMenu}>
+      <S.MenuButton onClick={toggleMenu} $scrolled={isScrolled}>
         <MenuIcon />
       </S.MenuButton>
 
-      {/* Overlay + Mobile Menu */}
+      {/* Overlay & Mobile Menu */}
       <S.Overlay $open={isMenuOpen} onClick={() => setIsMenuOpen(false)}>
         <S.MobileMenu $open={isMenuOpen} onClick={(e) => e.stopPropagation()}>
           <S.Container $padding="20px">
@@ -82,7 +82,7 @@ const Navbar = memo(() => {
               <Link
                 to={link.to}
                 smooth
-                duration={500}
+                duration={1000}
                 spy
                 offset={-70}
                 onClick={() => setIsMenuOpen(false)}

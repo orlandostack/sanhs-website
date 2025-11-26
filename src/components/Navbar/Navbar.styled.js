@@ -16,7 +16,7 @@ export const NavbarWrapper = styled.nav`
     $scrolled ? theme.color.white : theme.color.transparent};
   color: ${({ $scrolled }) =>
     $scrolled ? theme.color.black : theme.color.white};
-  box-shadow: ${({ $scrolled }) => ($scrolled ? theme.shadow.soft : "none")};
+  box-shadow: ${({ $scrolled }) => ($scrolled ? theme.shadow.medium : "none")};
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   ${theme.media.mobile} {
@@ -87,10 +87,11 @@ export const Navitems = styled.li`
   a {
     cursor: pointer;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
-      color: ${theme.color.primary};
+      color: ${theme.color.primaryAccent};
+      font-weight: 600;
     }
   }
 `;
@@ -109,6 +110,11 @@ export const MenuButton = styled.button`
   ${theme.media.mobile} {
     display: block;
   }
+
+  svg {
+    color: ${({ $scrolled }) =>
+      $scrolled ? theme.color.black : theme.color.white};
+  }
 `;
 
 export const Overlay = styled.div`
@@ -116,7 +122,7 @@ export const Overlay = styled.div`
   inset: 0;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(2px);
-
+  overflow-y: hidden;
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   pointer-events: ${({ $open }) => ($open ? "all" : "none")};
 
@@ -136,11 +142,10 @@ export const MobileMenu = styled.ul`
   width: 280px;
   height: 100vh;
   padding: 0 20px 0;
-  color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.black : theme.color.white};
+  border-radius: 0 1rem 1rem 0;
+  color: ${theme.color.black};
 
-  background: ${({ $scrolled }) =>
-    $scrolled ? theme.color.white : "rgba(0, 0, 0, 0.9)"};
+  background: ${theme.color.white};
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
 
   transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(-100%)")};
