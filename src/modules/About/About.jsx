@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./About.styled";
-import { aboutData, aboutImages } from "../../data/aboutData";
+import { aboutData } from "../../data/aboutData";
 import SectionTitle from "../../components/SectionTitle";
 import Logo from "../../assets/logo.png";
 import IMG1 from "../../assets/about-thumbnail-1.jpg";
@@ -25,7 +25,7 @@ const About = ({ id }) => {
             <h2>{aboutData.school.established}</h2>
           </div>
         </S.AboutHeader>
-        <S.AboutInfo className="Info" isExpanded={isExpanded}>
+        <S.AboutInfo className="Info" $isExpanded={isExpanded}>
           {aboutData.content}
         </S.AboutInfo>
         <S.ToggleButton onClick={toggleExpand}>
