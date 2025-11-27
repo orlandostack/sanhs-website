@@ -48,7 +48,7 @@ export const Content = styled.div`
   color: white;
   text-align: center;
   padding: 0 40px;
-  padding-top: 200px;
+  padding-top: 12%;
 
   h1,
   h2 {

@@ -1,4 +1,3 @@
-// src/components/Cards/HeroCard/HeroCard.styled.js
 import styled from "styled-components";
 import theme from "../../../styles/Theme";
 
@@ -35,16 +34,15 @@ export const CardWrapper = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: ${theme.shadow.large};
-    background-color: ${theme.color.white};
     color: ${theme.color.white};
 
     svg {
-      color: ${theme.color.primaryAccent};
+      color: ${theme.color.white};
     }
 
     ${Title},
     ${Subtitle} {
-      color: ${theme.color.primaryAccent};
+      color: ${theme.color.white};
     }
   }
 `;
