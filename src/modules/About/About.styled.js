@@ -67,8 +67,8 @@ export const AboutInfo = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  -webkit-line-clamp: ${(props) => (props.isExpanded ? "unset" : "4")};
-  line-clamp: ${(props) => (props.isExpanded ? "unset" : "4")};
+  -webkit-line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "4")};
+  line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "4")};
 
   line-height: 1.6;
   text-align: justify;
