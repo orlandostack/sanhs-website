@@ -7,7 +7,7 @@ import BgImage from "../assets/bg-image.png";
 export const heroData = {
   bgImage: BgImage,
   heading: "San Antonio National High School",
-  subheading: "Lorem ipsum dolor sit amet.",
+  subheading: "Where Learning Meets Excellence",
 
   primaryButton: "Get in Touch",
   secondaryButton: "Announcements",

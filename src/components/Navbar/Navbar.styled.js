@@ -15,7 +15,7 @@ export const NavbarWrapper = styled.nav`
   background-color: ${({ $scrolled }) =>
     $scrolled ? theme.color.white : theme.color.transparent};
   color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.black : theme.color.white};
+    $scrolled ? theme.color.primaryLight : theme.color.white};
   box-shadow: ${({ $scrolled }) => ($scrolled ? theme.shadow.medium : "none")};
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
@@ -90,7 +90,7 @@ export const Navitems = styled.li`
     transition: all 0.3s ease;
 
     &:hover {
-      color: ${theme.color.primaryAccent};
+      color: ${theme.color.success};
       font-weight: 600;
     }
   }

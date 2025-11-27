@@ -2,6 +2,20 @@
 import styled from "styled-components";
 import theme from "../../../styles/Theme";
 
+export const Title = styled.h3`
+  font-size: ${theme.font.size.xl};
+  margin: 0;
+  font-weight: 700;
+  color: ${theme.color.white};
+`;
+
+export const Subtitle = styled.p`
+  font-size: ${theme.font.size.base};
+  color: ${theme.color.gray};
+  margin: 0;
+  color: ${theme.color.white};
+`;
+
 export const CardWrapper = styled.div`
   width: 300px;
   height: 160px;
@@ -16,12 +30,22 @@ export const CardWrapper = styled.div`
   padding: 20px;
   transition: 0.3s ease;
   cursor: default;
+  background-color: ${theme.color.primaryAccent};
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: ${theme.shadow.large};
-    background-color: ${theme.color.primaryAccent};
+    background-color: ${theme.color.white};
     color: ${theme.color.white};
+
+    svg {
+      color: ${theme.color.primaryAccent};
+    }
+
+    ${Title},
+    ${Subtitle} {
+      color: ${theme.color.primaryAccent};
+    }
   }
 `;
 
@@ -39,18 +63,6 @@ export const IconWrapper = styled.div`
   }
 
   svg {
-    color: ${theme.color.green};
+    color: ${theme.color.white};
   }
-`;
-
-export const Title = styled.h3`
-  font-size: ${theme.font.size.xl};
-  margin: 0;
-  font-weight: 700;
-`;
-
-export const Subtitle = styled.p`
-  font-size: ${theme.font.size.base};
-  color: ${theme.color.gray};
-  margin: 0;
 `;

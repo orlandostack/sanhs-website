@@ -1,13 +1,7 @@
-export const breakpoint = {
-  mobile: "only screen and (max-width: 767px)",
-  tablet: "only screen and (min-width: 768px) and (max-width: 1279px)",
-  desktop: "only screen and (min-width: 1280px)",
-};
-
 export const media = {
-  mobile: `@media ${breakpoint.mobile}`,
-  tablet: `@media ${breakpoint.tablet}`,
-  desktop: `@media ${breakpoint.desktop}`,
+  mobile: "@media only screen and (max-width: 767px)",
+  tablet: "@media only screen and (min-width: 768px) and (max-width: 1279px)",
+  desktop: "@media only screen and (min-width: 1280px)",
 };
 
 export const color = {
@@ -81,7 +75,6 @@ export const font = {
 };
 
 export const theme = {
-  breakpoint,
   media,
   color,
   shadow,
