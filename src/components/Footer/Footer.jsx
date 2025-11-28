@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { memo } from "react";
 import * as S from "./Footer.styled";
 import { footerData } from "../../data/footerData";
@@ -23,7 +23,7 @@ const Footer = memo(({ id }) => {
             feel free to reach out to us. We're always here to help.
           </S.ContactDescription>
           <S.Address>
-            ● Samoguita, San Antonio, Quezon, Philippines 4524
+            <FaMapMarkedAlt /> Sampaguita, San Antonio, Quezon, Philippines 4524
           </S.Address>
         </S.ContactSection>
 

@@ -99,8 +99,10 @@ export const ContactDescription = styled.p`
 `;
 
 export const Address = styled.p`
+  gap: 0.5rem;
+  display: flex;
   font-size: 1rem;
-  margin: 0;
+  margin-top: 1rem;
   color: ${theme.color.white};
   opacity: 0.9;
 `;
