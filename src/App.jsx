@@ -18,7 +18,6 @@ function App() {
     <>
       <GlobalStyle />
       <LandingPage />
-      <Section id="blogs">Blogs</Section>
       <Section id="announcement">Announcements</Section>
       <Section id="contacts">Contact</Section>
     </>
