@@ -91,6 +91,7 @@ export const Collage = styled.div`
   width: 100%;
   display: flex;
   gap: 1rem;
+  height: 60vh;
 
   ${theme.media.mobile} {
     flex-direction: column;
@@ -124,7 +125,7 @@ export const Collage = styled.div`
 
   .RightSide img {
     width: 100%;
-    height: 100%;
+    height: 29vh;
     object-fit: cover;
     border-radius: 8px;
     flex: 1;
