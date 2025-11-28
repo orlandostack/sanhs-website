@@ -12,6 +12,6 @@ export const navbarData = {
     { name: "About", to: "about" },
     { name: "Blogs", to: "blogs" },
     { name: "Announcement", to: "announcement" },
-    { name: "Contact", to: "contacts" },
+    { name: "Contact", to: "footer" },
   ],
 };
