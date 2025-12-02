@@ -1,1 +1,1 @@
-export { default } from "./Blogcarousel";
+export { default } from "./BlogCarousel";

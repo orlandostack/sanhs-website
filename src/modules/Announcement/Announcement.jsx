@@ -9,12 +9,11 @@ const AnnouncementCard = lazy(() =>
   import("../../components/Cards/AnnouncementCard/AnnouncementCard")
 );
 
-const Announcement = memo(() => {
-  // memoize announcement list para hindi nagre-render nang paulit-ulit
+const Announcement = memo(({ id }) => {
   const cards = useMemo(() => announcementData.card, []);
 
   return (
-    <S.AnnouncementWrapper>
+    <S.AnnouncementWrapper id={id}>
       <S.Content>
         <SectionTitle
           title={announcementData.title}
