@@ -8,7 +8,6 @@ export const FooterWrapper = styled.section`
   color: ${theme.color.white};
 
   ${theme.media.mobile} {
-    margin-top: 25rem;
   }
 `;
 
