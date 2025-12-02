@@ -1,9 +1,9 @@
+
 import React from 'react';
 import * as S from "./EventsCard.styled";
 import eventsData from "../../../data/EventsCardData"
 
 function EventsCard() {
-
   const displayedEvents = eventsData.slice(0, 8);
   
   return (

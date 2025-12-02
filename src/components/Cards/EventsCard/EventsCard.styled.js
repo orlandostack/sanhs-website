@@ -27,19 +27,6 @@ export const EventsCardWrapper = styled.section`
   }
 `;
 
-export const Card = styled.div`
-  cursor: pointer;
-  border-radius: 9px;
-  border: 1px solid #0f5132;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: flex-start;
-
-  ${theme.media.mobile} {
-    flex-direction: column;
-  }
-`;
-
 export const Date = styled.div`
   border-radius: 8px 0 0 8px;
   height: 100%;
@@ -52,6 +39,7 @@ export const Date = styled.div`
   min-width: 80px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  transition: background-color 0.3s ease;
 
   ${theme.media.mobile} {
     font-size: 1rem;
@@ -60,6 +48,7 @@ export const Date = styled.div`
     min-width: auto;
   }
 `;
+
 
 export const Details = styled.div`
   font-family: ${theme.font.family};
@@ -73,8 +62,42 @@ export const Details = styled.div`
   padding: 0.5rem;
   -webkit-line-clamp: 4;
   height: calc(1.3em * 4);
+  transition: all 0.3s ease;
+  
   ${theme.media.mobile} {
     font-size: 0.9rem;
     line-height: 1.5;
+  }
+`;
+
+export const Card = styled.div`
+  cursor: pointer;
+  border-radius: 9px;
+  border: 1px solid #0f5132;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: ${theme.color.primaryAccent};
+    background-color: #f8f9fa;
+    
+    ${Date} {
+      background-color: ${theme.color.primary || "#0f5132"};
+    }
+    
+    ${Details} {
+      color: #000;
+    }
+  }
+  
+  ${theme.media.mobile} {
+    flex-direction: column;
+    
+    &:hover {
+      transform: none;
+    }
   }
 `;
