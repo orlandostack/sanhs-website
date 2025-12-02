@@ -2,15 +2,9 @@ import styled from "styled-components";
 import theme from "../../styles/Theme";
 import { Button } from "antd";
 
-export const BlogWrapper = styled.section`
+export const AnnouncementWrapper = styled.section`
   height: auto;
-  width: 100%;
-  margin: 4rem 0 0;
-  background-color: #0f5132;
-
-  ${theme.media.mobile} {
-    margin-top: 25rem;
-  }
+  background-color: ${theme.color.gray[100]};
 `;
 
 export const Content = styled.div`
@@ -20,6 +14,23 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+`;
+
+export const CardContainer = styled.div`
+  width: 100%;
+  height: auto;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${theme.media.tablet} {
+    flex-direction: column;
+  }
+
+  ${theme.media.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const ViewAllButton = styled(Button)`
