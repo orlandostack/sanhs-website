@@ -4,24 +4,24 @@ import theme from "../../../styles/Theme";
 export const EventsCardWrapper = styled.section`
   height: auto;
   width: 100%;
-  background-color: #fff;
+  background-color: ${theme.color.white};
   display: grid;
   gap: 2.5rem;
   margin-top: 4rem;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
-  
+
   ${theme.media.tablet} {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, auto);
   }
-  
+
   ${theme.media.mobile} {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, auto);
 
-    & > *:nth-child(n+5) {
+    & > *:nth-child(n + 5) {
       display: none;
     }
   }
@@ -32,10 +32,10 @@ export const Date = styled.div`
   height: 100%;
   background-color: ${theme.color.primaryAccent};
   padding: 2rem;
-  font-family: "Arial", sans-serif;
+  font-family: ${theme.font.family.heading};
   font-weight: bold;
   font-size: 1.2rem;
-  color: #fff;
+  color: ${theme.color.white};
   min-width: 80px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -48,7 +48,6 @@ export const Date = styled.div`
     min-width: auto;
   }
 `;
-
 
 export const Details = styled.div`
   font-family: ${theme.font.family};
@@ -63,7 +62,7 @@ export const Details = styled.div`
   -webkit-line-clamp: 4;
   height: calc(1.3em * 4);
   transition: all 0.3s ease;
-  
+
   ${theme.media.mobile} {
     font-size: 0.9rem;
     line-height: 1.5;
@@ -72,30 +71,32 @@ export const Details = styled.div`
 
 export const Card = styled.div`
   cursor: pointer;
-  border-radius: 9px;
-  border: 1px solid #0f5132;
+  border-radius: ${theme.radius.md};
+  background-color: ${theme.color.white};
+  border: 1px solid ${theme.color.primary};
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: flex-start;
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: ${theme.shadow.soft};
     border-color: ${theme.color.primaryAccent};
-    background-color: #f8f9fa;
-    
+    background-color: ${theme.color.white};
+    transform: translateY(-8px);
+
     ${Date} {
-      background-color: ${theme.color.primary || "#0f5132"};
+      background-color: ${theme.color.primary || theme.color.primaryDark};
     }
-    
+
     ${Details} {
-      color: #000;
+      color: ${theme.color.black};
     }
   }
-  
+
   ${theme.media.mobile} {
     flex-direction: column;
-    
+
     &:hover {
       transform: none;
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./Events.styled.";
-import EventsCard from "../../components/Cards/EventsCard/EventsCard";
+import EventsCard from "../../components/Cards/EventsCard";
 import { EventsData } from "../../data/EventsData";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
@@ -14,9 +14,9 @@ const Events = ({ id }) => {
         subtitleColor={EventsData.black}
       ></SectionTitle>
       <EventsCard />
-     <S.Container>
-      <S.ViewAllButton>View All</S.ViewAllButton>
-    </S.Container>
+      <S.Container>
+        <S.ViewAllButton>View All</S.ViewAllButton>
+      </S.Container>
     </S.EventsWrapper>
   );
 };
