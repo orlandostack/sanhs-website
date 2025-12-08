@@ -1,6 +1,4 @@
 // src/data/heroData.js
-import { FaUser } from "react-icons/fa";
-import { FaHandHolding } from "react-icons/fa";
 import SanhsLogo from "../assets/logo.png";
 import BgImage from "../assets/bg-image.png";
 
@@ -14,22 +12,34 @@ export const heroData = {
 
   heroCard: [
     {
-      id: "card-1",
+      id: "mission",
       logo: SanhsLogo,
-      title: "40 years",
-      subtitle: "EST. 1985-2025",
+      title: "Mission",
+      subtitle: "Click to view mission",
+      modalContent: `
+To develop learners with the necessary knowledge, skills, and values 
+to become responsible, productive, and globally competitive citizens.
+      `,
     },
     {
-      id: "card-2",
-      logo: FaUser,
-      title: "2,203",
-      subtitle: "Total Students",
+      id: "vision",
+      logo: SanhsLogo,
+      title: "Vision",
+      subtitle: "Click to view vision",
+      modalContent: `
+A school that produces empowered learners who uphold excellence, integrity, 
+and leadership in a rapidly changing world.
+      `,
     },
     {
-      id: "card-3",
-      logo: FaHandHolding,
-      title: "TVL/GAS",
-      subtitle: "Programs Offer",
+      id: "philosophy",
+      logo: SanhsLogo,
+      title: "Philosophy",
+      subtitle: "Click to view philosophy",
+      modalContent: `
+Education is the key to transforming lives, building character, and shaping 
+a just and progressive society.
+      `,
     },
   ],
 };
