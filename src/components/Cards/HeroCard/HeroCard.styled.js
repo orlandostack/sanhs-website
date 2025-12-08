@@ -28,7 +28,7 @@ export const CardWrapper = styled.div`
   gap: 8px;
   padding: 20px;
   transition: 0.3s ease;
-  cursor: default;
+  cursor: pointer;
   background-color: ${theme.color.primaryAccent};
 
   &:hover {
