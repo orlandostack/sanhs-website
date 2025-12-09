@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { GoArrowLeft } from "react-icons/go";
 import SectionTitle from "../../components/SectionTitle";
 import { blogData } from "../../data/blogData";
@@ -13,34 +13,34 @@ const formatDate = (dateString) => {
 
 const Blogs = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredBlogs, setFilteredBlogs] = useState(blogData);
-
   const navigate = useNavigate();
 
   const handleBack = () => navigate(-1);
   const handleNavigate = (id) => navigate(`/blog/${id}`);
 
-  // Live search effect
-  useEffect(() => {
+  // Derived filteredBlogs (replace old setState version)
+  const filteredBlogs = useMemo(() => {
     const term = searchTerm.toLowerCase();
-    const filtered = blogData.filter(
+
+    return blogData.filter(
       (blog) =>
         blog.title.toLowerCase().includes(term) ||
         blog.subtitle.toLowerCase().includes(term) ||
         (blog.keywords &&
           blog.keywords.some((k) => k.toLowerCase().includes(term)))
     );
-    setFilteredBlogs(filtered);
   }, [searchTerm]);
+
+  // Sort blogs by date
+  const sortedBlogData = useMemo(() => {
+    return [...filteredBlogs].sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+  }, [filteredBlogs]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Sort blogs by date
-  const sortedBlogData = [...filteredBlogs].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
 
   return (
     <S.Wrapper>
@@ -54,6 +54,7 @@ const Blogs = () => {
             title="Blog Posts"
             subtitle="Latest Updates and Stories"
           />
+
           <S.SearchInput
             type="text"
             placeholder="Search blogs..."

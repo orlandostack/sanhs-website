@@ -2,7 +2,6 @@ import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { blogData } from "../../data/blogData";
 
-import theme from "../../styles/Theme";
 import SectionTitle from "../../components/SectionTitle";
 import BlogCarousel from "../../components/Carousel/BlogCarousel";
 import BlogCard from "../../components/Cards/BlogCard";
