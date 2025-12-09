@@ -1,4 +1,4 @@
-import LandingPage from "./pages/LandingPage";
+import AppRoute from "./route/AppRoute";
 import GlobalStyle from "./styles/Global";
 import styled from "styled-components";
 
@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <LandingPage />
+      <AppRoute />
     </>
   );
 }

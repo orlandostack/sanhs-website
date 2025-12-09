@@ -21,7 +21,7 @@ const Hero = memo(({ id }) => {
         <S.Heading>{heroData.heading}</S.Heading>
 
         <S.Container $margin="20px 0" $gap="2rem">
-          <Link to="contacts" smooth duration={1000} spy={true}>
+          <Link to="footer" smooth duration={1000} spy={true}>
             <HeroButton $color={theme.color.black}>
               {heroData.primaryButton}
             </HeroButton>
