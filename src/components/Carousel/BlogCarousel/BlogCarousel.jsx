@@ -45,13 +45,13 @@ const BlogCarousel = () => {
     width: "50px",
     height: "50px",
     borderRadius: "50%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     border: "none",
     cursor: "pointer",
-    color: "white",
+    color: "black",
     fontSize: "16px",
   };
 

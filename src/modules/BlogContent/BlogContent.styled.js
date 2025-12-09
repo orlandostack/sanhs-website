@@ -4,7 +4,7 @@ import theme from "../../styles/Theme";
 export const Wrapper = styled.section`
   height: auto;
   width: 100%;
-  padding: 4rem 0;
+  padding: 3rem 0;
 `;
 
 export const Content = styled.div`

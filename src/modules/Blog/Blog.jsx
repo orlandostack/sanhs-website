@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 import { blogData } from "../../data/blogData";
 
 import theme from "../../styles/Theme";
@@ -9,26 +10,25 @@ import BlogCard from "../../components/Cards/BlogCard";
 import * as S from "./Blog.styled";
 
 const Blog = memo(({ id }) => {
+  const navigate = useNavigate();
+
+  const handleViewAll = () => {
+    navigate("/blogpage");
+  };
+
   return (
     <S.BlogWrapper id={id}>
       <S.Content>
         <SectionTitle
           title="Featured"
           subtitle="School Highlights & Features"
-          titleColor={theme.color.white}
-          subtitleColor={theme.color.white}
         />
 
         <BlogCarousel />
 
-        <SectionTitle
-          title="Blog news"
-          subtitle="Recent Blog Posts"
-          titleColor={theme.color.white}
-          subtitleColor={theme.color.white}
-        />
+        <SectionTitle title="Blog news" subtitle="Recent Blog Posts" />
         <BlogCard blogs={blogData} />
-        <S.ViewAllButton>View all</S.ViewAllButton>
+        <S.ViewAllButton onClick={handleViewAll}>View all</S.ViewAllButton>
       </S.Content>
     </S.BlogWrapper>
   );

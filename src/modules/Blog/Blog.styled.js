@@ -6,7 +6,7 @@ export const BlogWrapper = styled.section`
   height: auto;
   width: 100%;
   margin: 4rem 0 0;
-  background-color: #0f5132;
+  background-color: ${theme.color.gray[100]};
 
   ${theme.media.mobile} {
     margin-top: 25rem;

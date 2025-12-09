@@ -5,19 +5,19 @@ import { Button } from "antd";
 export const EventsWrapper = styled.section`
   height: auto;
   max-width: 85vw;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
-  background-color: #fff;
+  background-color: white;
   align-items: center;
   ${theme.media.mobile} {
   }
 `;
 
 export const Container = styled.div`
-margin-top: 2rem;
-width: 100%;
-display: flex;
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 `;

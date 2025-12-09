@@ -5,8 +5,7 @@ import Thumb4 from "../assets/announcement-thumbnail-4.jpg";
 
 export const announcementData = {
   title: "Announcement",
-  subtitle:
-    "Stay Informed with Important Updates and Announcements from San Antonio National High School",
+  subtitle: "Updates and Announcements",
 
   card: [
     {

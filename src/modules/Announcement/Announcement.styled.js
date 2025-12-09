@@ -4,7 +4,7 @@ import { Button } from "antd";
 
 export const AnnouncementWrapper = styled.section`
   height: auto;
-  background-color: ${theme.color.gray[100]};
+  background-color: white;
 `;
 
 export const Content = styled.div`

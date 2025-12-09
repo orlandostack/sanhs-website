@@ -18,8 +18,6 @@ const Announcement = memo(({ id }) => {
         <SectionTitle
           title={announcementData.title}
           subtitle={announcementData.subtitle}
-          titleColor={theme.color.black}
-          subtitleColor={theme.color.black}
         />
 
         <S.CardContainer>
