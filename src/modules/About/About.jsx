@@ -17,7 +17,6 @@ const About = ({ id }) => {
   return (
     <S.AboutWrapper>
       <S.Content id={id}>
-        <SectionTitle title="About" subtitle="Know something about us" />
         <S.AboutHeader>
           <img className="Logo" src={Logo} alt="SANHS Logo" />
           <div className="Header">

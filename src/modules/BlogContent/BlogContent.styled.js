@@ -52,7 +52,8 @@ export const ThumbnailImage = styled.img`
 export const Title = styled.h1`
   font-size: 2.5rem;
   color: ${theme.color.primaryAccent};
-  margin: 0;
+  margin: 0 0 1rem 0;
+  line-height: 2.5rem;
 
   ${theme.media.mobile} {
     font-size: 2rem;

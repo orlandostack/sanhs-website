@@ -4,6 +4,10 @@ import theme from "../../styles/Theme";
 export const SectionContainer = styled.div`
   text-align: left;
   margin-bottom: 2rem;
+
+  ${theme.media.mobile} {
+    text-align: center;
+  }
 `;
 
 export const Title = styled.h2`
