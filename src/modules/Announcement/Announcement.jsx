@@ -10,7 +10,11 @@ const AnnouncementCard = lazy(() =>
 );
 
 const Announcement = memo(({ id }) => {
-  const cards = useMemo(() => announcementData.card, []);
+  const cards = useMemo(() => {
+    return [...announcementData.card]
+      .sort((a, b) => b.date - a.date)
+      .slice(0, 2); 
+  }, []);
 
   return (
     <S.AnnouncementWrapper id={id}>

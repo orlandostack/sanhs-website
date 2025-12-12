@@ -2,13 +2,15 @@ import styled from "styled-components";
 import theme from "../../../styles/Theme";
 
 export const CardWrapper = styled.div`
-  width: 260px;
+  width: 100%;
   height: auto;
   background-color: ${theme.color.white};
   overflow: hidden;
   box-shadow: ${theme.shadow.soft};
   border-radius: ${theme.radius.md};
+  border: 1px solid ${theme.color.gray[300]};
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 
   .overlay-2 {
     display: none;
@@ -95,20 +97,18 @@ export const CardDate = styled.h1`
   margin: 0;
   font-size: ${theme.font.size.xl};
   color: ${theme.color.white};
-  text-decoration: underline;
-  text-underline-offset: 8px;
 `;
 
 export const CardBrand = styled.h2`
   font-size: ${theme.font.size.base};
   margin: 0;
-  color: ${theme.color.white};
+  color: ${theme.color.black};
 `;
 
 export const CardTitle = styled.h3`
-  font-size: ${theme.font.size.base};
-  font-weight: normal;
-  color: ${theme.color.white};
+  font-size: ${theme.font.size.xl};
+  font-weight: 600;
+  color: ${theme.color.primaryAccent};
   margin: 0;
   width: 100%;
   display: -webkit-box;
@@ -117,7 +117,6 @@ export const CardTitle = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.2;
-  height: calc(1.2em * 2);
 `;
 
 export const CardBody = styled.div`
@@ -127,13 +126,23 @@ export const CardBody = styled.div`
 
   p {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 1.2;
-    height: calc(1.2em * 4);
-    margin: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      object-fit: cover;
+      height: auto;
+      width: 2.5rem;
+    }
   }
 `;
 

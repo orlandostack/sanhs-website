@@ -1,4 +1,4 @@
-import BlogContent from "../../modules/BlogContent";
+import BlogContent from "../../modules/BlogList";
 
 const BlogContentPage = () => {
   return <BlogContent />;

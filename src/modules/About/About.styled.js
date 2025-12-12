@@ -18,6 +18,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  ${theme.media.mobile} {
+    max-width: 92vw;
+  }
 `;
 
 export const AboutHeader = styled.div`

@@ -14,22 +14,27 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  ${theme.media.mobile} {
+    max-width: 92vw;
+  }
 `;
 
 export const CardContainer = styled.div`
   width: 100%;
   height: auto;
   gap: 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
 
   ${theme.media.tablet} {
-    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   ${theme.media.mobile} {
-    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

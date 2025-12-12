@@ -9,36 +9,36 @@ export const announcementData = {
 
   card: [
     {
-      id: "card-1",
+      id: 1,
       img: Thumb1,
-      date: "Nov 20",
+      date: new Date("2025-11-01"),
       brand: "SANHS",
       cardtitle: " Lorem ipsum, dolor sit amet.",
       cardbody:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
     },
     {
-      id: "card-2",
+      id: 2,
       img: Thumb2,
-      date: "Nov 26",
+      date: new Date("2025-12-01"),
       brand: "SANHS",
       cardtitle: " Lorem ipsum, dolor sit amet.",
       cardbody:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
     },
     {
-      id: "card-3",
+      id: 3,
       img: Thumb3,
-      date: "June 26",
+      date: new Date("2025-11-10"),
       brand: "SANHS",
-      cardtitle: " Lorem ipsum, dolor sit amet.",
+      cardtitle: "Suspension of classes",
       cardbody:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
     },
     {
-      id: "card-4",
+      id: 4,
       img: Thumb4,
-      date: "Oct 26",
+      date: new Date("2025-10-01"),
       brand: "SANHS",
       cardtitle: " Lorem ipsum, dolor sit amet.",
       cardbody:
