@@ -3,14 +3,15 @@ import theme from "../../../styles/Theme";
 
 export const CardWrapper = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: ${theme.color.white};
   overflow: hidden;
   box-shadow: ${theme.shadow.soft};
   border-radius: ${theme.radius.md};
   border: 1px solid ${theme.color.gray[300]};
   transition: all 0.2s ease-in-out;
-  cursor: pointer;
 
   .overlay-2 {
     display: none;
@@ -40,6 +41,7 @@ export const CardWrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   position: ${({ $position }) => $position};
   top: ${({ $top }) => $top};
@@ -95,8 +97,9 @@ export const Overlay2 = styled.div`
 
 export const CardDate = styled.h1`
   margin: 0;
-  font-size: ${theme.font.size.xl};
-  color: ${theme.color.white};
+  font-size: ${theme.font.size.sm};
+  color: ${theme.color.gray[500]};
+  font-weight: 500;
 `;
 
 export const CardBrand = styled.h2`
@@ -123,20 +126,12 @@ export const CardBody = styled.div`
   width: 100%;
   height: auto;
   padding: 10px 20px;
-
-  p {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  flex: 1;
 
   .wrapper {
     display: flex;
     gap: 1rem;
     align-items: center;
-    justify-content: center;
 
     img {
       object-fit: cover;

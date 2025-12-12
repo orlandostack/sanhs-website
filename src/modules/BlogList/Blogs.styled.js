@@ -17,7 +17,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   ${theme.media.mobile} {
-    max-width: 90vw;
+    max-width: 92vw;
   }
 `;
 

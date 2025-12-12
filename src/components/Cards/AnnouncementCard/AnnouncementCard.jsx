@@ -10,7 +10,16 @@ const AnnouncementCard = memo(({ img, date, brand, title, body }) => {
         <S.CardBody>
           <div className="wrapper">
             <img src={Logo} alt="Sanhs logo" />
-            <S.CardTitle>{title}</S.CardTitle>
+            <div>
+              <S.CardTitle>{title}</S.CardTitle>
+              <S.CardDate>
+                {date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </S.CardDate>
+            </div>
           </div>
 
           <p> {body}</p>
@@ -19,17 +28,13 @@ const AnnouncementCard = memo(({ img, date, brand, title, body }) => {
         <S.CardHeader>
           <S.Overlay className="overlay" />
           <S.Overlay2 className="overlay-2" />
-          <img src={img} alt="card image" />
+          <img className="thumbnail" src={img} alt="card image" />
 
-          <S.Content $position="absolute" $bottom="10px" $left="20px">
-            <S.CardDate>
-              {date.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </S.CardDate>
-          </S.Content>
+          <S.Content
+            $position="absolute"
+            $bottom="10px"
+            $left="20px"
+          ></S.Content>
         </S.CardHeader>
       </S.Content>
     </S.CardWrapper>

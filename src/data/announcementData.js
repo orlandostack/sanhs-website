@@ -13,7 +13,7 @@ export const announcementData = {
       img: Thumb1,
       date: new Date("2025-11-01"),
       brand: "SANHS",
-      cardtitle: " Lorem ipsum, dolor sit amet.",
+      cardtitle: "Walang Pasok",
       cardbody:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
     },
@@ -22,7 +22,7 @@ export const announcementData = {
       img: Thumb2,
       date: new Date("2025-12-01"),
       brand: "SANHS",
-      cardtitle: " Lorem ipsum, dolor sit amet.",
+      cardtitle: "Quarter examination",
       cardbody:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
     },
@@ -40,7 +40,7 @@ export const announcementData = {
       img: Thumb4,
       date: new Date("2025-10-01"),
       brand: "SANHS",
-      cardtitle: " Lorem ipsum, dolor sit amet.",
+      cardtitle: "Card giving day",
       cardbody:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eos asperiores fugit omnis reprehenderit maiores vel dicta quasi, in accusamus.",
     },

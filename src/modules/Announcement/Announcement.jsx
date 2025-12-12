@@ -1,7 +1,7 @@
 // src/modules/Announcement/Announcement.jsx
 import { memo, useMemo, lazy, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import theme from "../../styles/Theme";
 import * as S from "./Announcement.styled";
 import { announcementData } from "../../data/announcementData";
 
@@ -13,8 +13,14 @@ const Announcement = memo(({ id }) => {
   const cards = useMemo(() => {
     return [...announcementData.card]
       .sort((a, b) => b.date - a.date)
-      .slice(0, 2); 
+      .slice(0, 2);
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleViewAll = () => {
+    navigate("/announcementpage");
+  };
 
   return (
     <S.AnnouncementWrapper id={id}>
@@ -39,7 +45,7 @@ const Announcement = memo(({ id }) => {
           </Suspense>
         </S.CardContainer>
 
-        <S.ViewAllButton>View All</S.ViewAllButton>
+        <S.ViewAllButton onClick={handleViewAll}>View All</S.ViewAllButton>
       </S.Content>
     </S.AnnouncementWrapper>
   );

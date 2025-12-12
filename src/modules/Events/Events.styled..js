@@ -10,7 +10,9 @@ export const EventsWrapper = styled.section`
   margin-top: 2rem;
   background-color: white;
   align-items: center;
+
   ${theme.media.mobile} {
+    max-width: 92vw;
   }
 `;
 
