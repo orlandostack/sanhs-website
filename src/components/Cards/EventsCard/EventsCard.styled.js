@@ -8,18 +8,14 @@ export const EventsCardWrapper = styled.section`
   display: grid;
   gap: 2.5rem;
   margin-top: 4rem;
-
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(3, 1fr);
 
   ${theme.media.tablet} {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, auto);
   }
 
   ${theme.media.mobile} {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, auto);
 
     & > *:nth-child(n + 5) {
       display: none;
@@ -36,7 +32,7 @@ export const Date = styled.div`
   font-weight: bold;
   font-size: 1.2rem;
   color: ${theme.color.white};
-  min-width: 80px;
+  width: 9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
@@ -51,17 +47,17 @@ export const Date = styled.div`
 
 export const Details = styled.div`
   font-family: ${theme.font.family};
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   line-height: 1.2;
-  color: ${theme.color.gray[600]};
+  color: ${theme.color.primaryAccent};
   flex: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   padding: 0.5rem;
-  -webkit-line-clamp: 4;
-  height: calc(1.3em * 4);
   transition: all 0.3s ease;
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${theme.media.mobile} {
     font-size: 0.9rem;
@@ -70,7 +66,6 @@ export const Details = styled.div`
 `;
 
 export const Card = styled.div`
-  cursor: pointer;
   border-radius: ${theme.radius.md};
   background-color: ${theme.color.white};
   border: 1px solid ${theme.color.primary};
@@ -84,14 +79,6 @@ export const Card = styled.div`
     border-color: ${theme.color.primaryAccent};
     background-color: ${theme.color.white};
     transform: translateY(-8px);
-
-    ${Date} {
-      background-color: ${theme.color.primary || theme.color.primaryDark};
-    }
-
-    ${Details} {
-      color: ${theme.color.black};
-    }
   }
 
   ${theme.media.mobile} {

@@ -5,9 +5,7 @@ import { Button } from "antd";
 export const EventsWrapper = styled.section`
   height: auto;
   max-width: 85vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
+  margin: 2rem auto 4rem auto;
   background-color: white;
   align-items: center;
 

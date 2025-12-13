@@ -10,13 +10,9 @@ const Events = ({ id }) => {
       <SectionTitle
         title={EventsData.title}
         subtitle={EventsData.subtitle}
-        titleColor={EventsData.black}
-        subtitleColor={EventsData.black}
       ></SectionTitle>
       <EventsCard />
-      <S.Container>
-        <S.ViewAllButton>View All</S.ViewAllButton>
-      </S.Container>
+      <S.Container></S.Container>
     </S.EventsWrapper>
   );
 };
