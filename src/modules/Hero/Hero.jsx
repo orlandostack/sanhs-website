@@ -8,8 +8,17 @@ import HeroCard from "../../components/Cards/HeroCard/HeroCard";
 import theme from "../../styles/Theme";
 import HeroModal from "../../components/Modal/HeroModal";
 
+import { useMvp } from "../../utils/hooks/useMvp";
+
 const Hero = memo(({ id }) => {
   const [activeModal, setActiveModal] = useState(null);
+  const { loading, error, mvp } = useMvp();
+
+  const modalContent = (() => {
+    if (!mvp || !activeModal) return "";
+
+    return mvp[activeModal.id];
+  })();
 
   return (
     <S.HeroWrapper id={id}>
@@ -51,7 +60,13 @@ const Hero = memo(({ id }) => {
         open={!!activeModal}
         onClose={() => setActiveModal(null)}
         title={activeModal?.title}
-        content={activeModal?.modalContent}
+        content={
+          loading
+            ? "Loading..."
+            : error
+            ? "Failed to load content"
+            : modalContent
+        }
       />
     </S.HeroWrapper>
   );

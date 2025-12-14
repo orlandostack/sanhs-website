@@ -21,36 +21,7 @@ const HeroModal = ({ open, onClose, title, content }) => {
       centered
       width={600}
       onCancel={onClose}
-      footer={[
-        <Button
-          key="cancel"
-          onClick={onClose}
-          style={{
-            background: theme.color.gray[200],
-            border: "none",
-            color: theme.color.black,
-            padding: "8px 16px",
-            borderRadius: theme.radius.md,
-          }}
-        >
-          Close
-        </Button>,
-
-        <Button
-          key="ok"
-          type="primary"
-          onClick={onClose}
-          style={{
-            background: theme.color.primary,
-            borderColor: theme.color.primary,
-            color: theme.color.white,
-            padding: "8px 16px",
-            borderRadius: theme.radius.md,
-          }}
-        >
-          OK
-        </Button>,
-      ]}
+      footer={[]}
     >
       <p style={{ fontSize: theme.font.size.base, lineHeight: "1.6" }}>
         {content}
