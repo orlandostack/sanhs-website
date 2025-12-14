@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import * as S from "./About.styled";
 import { aboutData } from "../../data/aboutData";
-import SectionTitle from "../../components/SectionTitle";
 import Logo from "../../assets/logo.png";
-import IMG1 from "../../assets/about-thumbnail-1.jpg";
-import IMG2 from "../../assets/about-thumbnail-2.jpg";
-import IMG3 from "../../assets/about-thumbnail-3.jpg";
+
+import { useAbout } from "../../utils/hooks/useAbout";
 
 const About = ({ id }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { loading, error, about, thumbnails } = useAbout();
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Failed to load content</p>;
 
   return (
     <S.AboutWrapper>
@@ -25,19 +27,25 @@ const About = ({ id }) => {
           </div>
         </S.AboutHeader>
         <S.AboutInfo className="Info" $isExpanded={isExpanded}>
-          {aboutData.content}
+          {about?.aboutInfo.split("\n").map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
         </S.AboutInfo>
+
         <S.ToggleButton onClick={toggleExpand}>
           {isExpanded ? "See Less" : "See More"}
         </S.ToggleButton>
         <S.Collage>
           <div className="LeftSide">
-            <img src={IMG1} alt="About Thumbnail" />
+            <img src={thumbnails?.[0]?.url} alt="About Thumbnail 1" />
           </div>
           <div className="RightSide">
-            <img src={IMG2} alt="About Thumbnail" />
+            <img src={thumbnails?.[1]?.url} alt="About Thumbnail 2" />
             <div className="Top"></div>
-            <img src={IMG3} alt="About Thumbnail" />
+            <img src={thumbnails?.[2]?.url} alt="About Thumbnail 3" />
             <div className="Bottom"></div>
           </div>
         </S.Collage>
