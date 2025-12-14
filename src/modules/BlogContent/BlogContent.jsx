@@ -1,18 +1,32 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { GoArrowLeft } from "react-icons/go";
-import { blogData } from "../../data/blogData";
 import * as S from "./BlogContent.styled";
+import { useBlog } from "../../utils/hooks/useBlog";
 
 const BlogContent = () => {
-  const { id } = useParams();
+  const { blogId } = useParams();
   const navigate = useNavigate();
+  const { loading, error, blogs } = useBlog();
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-  }, [id]);
+  }, [blogId]);
 
-  const blog = blogData.find((item) => item.id === parseInt(id));
+  if (loading)
+    return (
+      <S.Wrapper>
+        <p>Loading blog...</p>
+      </S.Wrapper>
+    );
+  if (error)
+    return (
+      <S.Wrapper>
+        <p>Failed to load blog.</p>
+      </S.Wrapper>
+    );
+
+  const blog = blogs.find((item) => item.blogId === blogId);
 
   const handleBack = () => navigate(-1);
 
@@ -48,7 +62,7 @@ const BlogContent = () => {
         <S.Title>{blog.title}</S.Title>
         <S.Subtitle>{blog.subtitle}</S.Subtitle>
         <S.DateText>{formatDate(blog.date)}</S.DateText>
-        <S.ThumbnailImage src={blog.thumbnail} alt={blog.title} />
+        <S.ThumbnailImage src={blog.thumbnail?.url} alt={blog.title} />
         <S.BlogText>{blog.content}</S.BlogText>
       </S.Content>
     </S.Wrapper>

@@ -1,16 +1,21 @@
 import { useRef } from "react";
 import { Carousel } from "antd";
-import { blogData } from "../../../data/blogData";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import { useBlog } from "../../../utils/hooks/useBlog";
 
 const Wrapper = styled.div`
   margin-bottom: 5rem;
 `;
 
 const BlogCarousel = () => {
-  const featuredBlogs = blogData.filter((blog) => blog.isFeatured);
+  const { loading, error, blogs } = useBlog();
   const carouselRef = useRef(null);
+
+  if (loading) return <p>Loading featured blogs...</p>;
+  if (error) return <p>Failed to load featured blogs</p>;
+
+  const featuredBlogs = blogs.filter((blog) => blog.isFeatured);
 
   const carouselStyle = {
     margin: 0,
@@ -70,11 +75,11 @@ const BlogCarousel = () => {
       <div style={{ position: "relative" }}>
         <Carousel ref={carouselRef} infinite={true}>
           {featuredBlogs.map((blog) => (
-            <div key={blog.id}>
+            <div key={blog.blogId}>
               <div
                 style={{
                   ...carouselStyle,
-                  background: `url(${blog.thumbnail}) no-repeat center center`,
+                  background: `url(${blog.thumbnail?.url}) no-repeat center center`,
                   backgroundSize: "cover",
                 }}
               >

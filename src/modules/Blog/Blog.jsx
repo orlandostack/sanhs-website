@@ -1,11 +1,9 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { blogData } from "../../data/blogData";
 
 import SectionTitle from "../../components/SectionTitle";
 import BlogCarousel from "../../components/Carousel/BlogCarousel";
 import BlogCard from "../../components/Cards/BlogCard";
-
 import * as S from "./Blog.styled";
 
 const Blog = memo(({ id }) => {
@@ -26,7 +24,9 @@ const Blog = memo(({ id }) => {
         <BlogCarousel />
 
         <SectionTitle title="Blog news" subtitle="Recent Blog Posts" />
-        <BlogCard blogs={blogData} />
+
+        <BlogCard />
+
         <S.ViewAllButton onClick={handleViewAll}>View all</S.ViewAllButton>
       </S.Content>
     </S.BlogWrapper>
