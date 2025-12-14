@@ -1,45 +1,51 @@
-// src/modules/Announcement/Announcement.jsx
-import { memo, useMemo, lazy, Suspense } from "react";
+import { memo, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import * as S from "./Announcement.styled";
-import { announcementData } from "../../data/announcementData";
+import { useAnnouncement } from "../../utils/hooks/useAnnouncement";
 
 const AnnouncementCard = lazy(() =>
   import("../../components/Cards/AnnouncementCard/AnnouncementCard")
 );
 
 const Announcement = memo(({ id }) => {
-  const cards = useMemo(() => {
-    return [...announcementData.card]
-      .sort((a, b) => b.date - a.date)
-      .slice(0, 2);
-  }, []);
-
+  const { loading, error, announcements } = useAnnouncement();
   const navigate = useNavigate();
 
-  const handleViewAll = () => {
-    navigate("/announcementpage");
-  };
+  const handleViewAll = () => navigate("/announcementpage");
+
+  if (loading)
+    return (
+      <S.AnnouncementWrapper id={id}>
+        <p>Loading announcements...</p>
+      </S.AnnouncementWrapper>
+    );
+  if (error)
+    return (
+      <S.AnnouncementWrapper id={id}>
+        <p>Failed to load announcements.</p>
+      </S.AnnouncementWrapper>
+    );
+
+  // Sort and take first 2 announcements
+  const cards = [...announcements]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 2);
 
   return (
     <S.AnnouncementWrapper id={id}>
       <S.Content>
-        <SectionTitle
-          title={announcementData.title}
-          subtitle={announcementData.subtitle}
-        />
+        <SectionTitle title="Announcements" subtitle="Latest Updates" />
 
         <S.CardContainer>
           <Suspense fallback={<div>Loading cards...</div>}>
             {cards.map((item) => (
               <AnnouncementCard
-                key={item.id}
-                img={item.img}
+                key={item.announcementId}
+                img={item.thumbnail?.url}
                 date={item.date}
-                brand={item.brand}
-                title={item.cardtitle}
-                body={item.cardbody}
+                title={item.title}
+                body={item.content}
               />
             ))}
           </Suspense>
