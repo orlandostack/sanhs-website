@@ -128,6 +128,10 @@ export const CardBody = styled.div`
   padding: 10px 20px;
   flex: 1;
 
+  p {
+    line-height: 1.5rem;
+  }
+
   .wrapper {
     display: flex;
     gap: 1rem;

@@ -1,13 +1,19 @@
 import * as S from "./EventsCard.styled";
-import eventsData from "../../../data/EventsCardData";
+import { useEvent } from "../../../utils/hooks/useEvent";
 
 function EventsCard() {
+  const { loading, error, events } = useEvent();
+
+  if (loading) return <p>Loading events...</p>;
+  if (error) return <p>Failed to load events.</p>;
+  if (events.length === 0) return <p>No events available.</p>;
+
   return (
     <S.EventsCardWrapper>
-      {eventsData.map((event, index) => (
-        <S.Card key={index}>
+      {events.map((event) => (
+        <S.Card key={event.eventId}>
           <S.Date>{event.date}</S.Date>
-          <S.Details>{event.details}</S.Details>
+          <S.Details>{event.title}</S.Details>
         </S.Card>
       ))}
     </S.EventsCardWrapper>

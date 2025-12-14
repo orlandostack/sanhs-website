@@ -3,9 +3,9 @@ import theme from "../../styles/Theme";
 import SectionTitle from "../../components/SectionTitle";
 import { GoArrowLeft } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
-import { announcementData } from "../../data/announcementData";
+import { useAnnouncement } from "../../utils/hooks/useAnnouncement";
 import AnnouncementCard from "../../components/Cards/AnnouncementCard/AnnouncementCard";
-import { useMemo, useEffect } from "react";
+import { useEffect } from "react";
 
 const Wrapper = styled.section`
   min-height: 100vh;
@@ -37,15 +37,6 @@ const IconWrapper = styled.div`
   svg {
     font-size: 1.3rem;
   }
-
-  ${theme.media.mobile} {
-    width: 3rem;
-    padding: 0.8rem;
-
-    svg {
-      font-size: 1.3rem;
-    }
-  }
 `;
 
 const CardWrapper = styled.div`
@@ -69,15 +60,35 @@ const CardWrapper = styled.div`
 const AnnouncementList = () => {
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
-
-  const cards = useMemo(
-    () => [...announcementData.card].sort((a, b) => b.date - a.date),
-    []
-  );
+  const { loading, error, announcements } = useAnnouncement();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (loading)
+    return (
+      <Wrapper>
+        <p>Loading announcements...</p>
+      </Wrapper>
+    );
+  if (error)
+    return (
+      <Wrapper>
+        <p>Failed to load announcements.</p>
+      </Wrapper>
+    );
+  if (announcements.length === 0)
+    return (
+      <Wrapper>
+        <p>No announcements available.</p>
+      </Wrapper>
+    );
+
+  // Sort announcements by date
+  const cards = [...announcements].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
   return (
     <Wrapper>
@@ -85,20 +96,16 @@ const AnnouncementList = () => {
         <IconWrapper onClick={handleBack}>
           <GoArrowLeft />
         </IconWrapper>
-        <SectionTitle
-          title={announcementData.title}
-          subtitle={announcementData.subtitle}
-        />
+        <SectionTitle title="Announcements" subtitle="Latest Updates" />
 
         <CardWrapper>
           {cards.map((item) => (
             <AnnouncementCard
-              key={item.id}
-              img={item.img}
+              key={item.announcementId}
+              img={item.thumbnail?.url}
               date={item.date}
-              brand={item.brand}
-              title={item.cardtitle}
-              body={item.cardbody}
+              title={item.title}
+              body={item.content}
             />
           ))}
         </CardWrapper>

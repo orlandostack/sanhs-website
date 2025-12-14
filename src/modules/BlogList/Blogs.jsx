@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react";
 import { GoArrowLeft } from "react-icons/go";
 import SectionTitle from "../../components/SectionTitle";
-import { blogData } from "../../data/blogData";
-
 import * as S from "./Blogs.styled";
+import { useBlog } from "../../utils/hooks/useBlog";
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -14,22 +13,21 @@ const formatDate = (dateString) => {
 const Blogs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const { loading, error, blogs } = useBlog();
 
   const handleBack = () => navigate(-1);
   const handleNavigate = (id) => navigate(`/blog/${id}`);
 
-  // Derived filteredBlogs (replace old setState version)
   const filteredBlogs = useMemo(() => {
     const term = searchTerm.toLowerCase();
-
-    return blogData.filter(
+    return blogs.filter(
       (blog) =>
         blog.title.toLowerCase().includes(term) ||
         blog.subtitle.toLowerCase().includes(term) ||
         (blog.keywords &&
           blog.keywords.some((k) => k.toLowerCase().includes(term)))
     );
-  }, [searchTerm]);
+  }, [searchTerm, blogs]);
 
   // Sort blogs by date
   const sortedBlogData = useMemo(() => {
@@ -41,6 +39,25 @@ const Blogs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (loading)
+    return (
+      <S.Wrapper>
+        <p>Loading blogs...</p>
+      </S.Wrapper>
+    );
+  if (error)
+    return (
+      <S.Wrapper>
+        <p>Failed to load blogs.</p>
+      </S.Wrapper>
+    );
+  if (blogs.length === 0)
+    return (
+      <S.Wrapper>
+        <p>No blogs available.</p>
+      </S.Wrapper>
+    );
 
   return (
     <S.Wrapper>
@@ -54,7 +71,6 @@ const Blogs = () => {
             title="Blog Posts"
             subtitle="Latest Updates and Stories"
           />
-
           <S.SearchInput
             type="text"
             placeholder="Search blogs..."
@@ -66,10 +82,10 @@ const Blogs = () => {
         <S.CardWrapper>
           {sortedBlogData.map((blog) => (
             <S.Card
-              key={blog.id || blog.title}
-              onClick={() => handleNavigate(blog.id)}
+              key={blog.blogId}
+              onClick={() => handleNavigate(blog.blogId)}
             >
-              <img src={blog.thumbnail} alt={blog.title} />
+              <img src={blog.thumbnail?.url} alt={blog.title} />
               <div className="overlay">
                 <div className="content">
                   <h3 className="title">{blog.title}</h3>

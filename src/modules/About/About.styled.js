@@ -71,12 +71,12 @@ export const AboutInfo = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  -webkit-line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "4")};
-  line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "4")};
+  -webkit-line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "3")};
+  line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "3")};
 
   line-height: 1.6;
   text-align: justify;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 `;
 
 export const ToggleButton = styled.button`
@@ -87,7 +87,7 @@ export const ToggleButton = styled.button`
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   display: block;
 `;
 

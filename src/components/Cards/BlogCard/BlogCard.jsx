@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Collage } from "./BlogCard.styled";
+import { useBlog } from "../../../utils/hooks/useBlog";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -11,30 +12,30 @@ const formatDate = (dateString) => {
   });
 };
 
-const BlogCard = memo(({ blogs }) => {
+const BlogCard = memo(() => {
+  const { loading, error, blogs } = useBlog();
   const navigate = useNavigate();
 
   const handleNavigate = (id) => {
     navigate(`/blog/${id}`);
   };
 
+  if (loading) return <div>Loading blogs...</div>;
+  if (error) return <div>Failed to load blogs</div>;
+  if (blogs.length === 0) return <div>No blogs available</div>;
+
   const sortedBlogs = [...blogs].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
   const latestBlogs = sortedBlogs.slice(0, 3);
-
-  if (latestBlogs.length === 0) {
-    return <div>No blogs available</div>;
-  }
-
   const [mostRecent, ...otherBlogs] = latestBlogs;
 
   return (
     <Collage>
       <div className="LeftSide">
-        <div className="card" onClick={() => handleNavigate(mostRecent.id)}>
-          <img src={mostRecent.thumbnail} alt={mostRecent.title} />
+        <div className="card" onClick={() => handleNavigate(mostRecent.blogId)}>
+          <img src={mostRecent.thumbnail?.url} alt={mostRecent.title} />
           <div className="overlay">
             <div className="content">
               <h3 className="title">{mostRecent.title}</h3>
@@ -48,11 +49,11 @@ const BlogCard = memo(({ blogs }) => {
       <div className="RightSide">
         {otherBlogs.map((blog) => (
           <div
-            key={blog.id}
+            key={blog.blogId}
             className="card"
-            onClick={() => handleNavigate(blog.id)}
+            onClick={() => handleNavigate(blog.blogId)}
           >
-            <img src={blog.thumbnail} alt={blog.title} />
+            <img src={blog.thumbnail?.url} alt={blog.title} />
             <div className="overlay">
               <div className="content">
                 <h3 className="title">{blog.title}</h3>

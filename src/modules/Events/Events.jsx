@@ -12,7 +12,6 @@ const Events = ({ id }) => {
         subtitle={EventsData.subtitle}
       ></SectionTitle>
       <EventsCard />
-      <S.Container></S.Container>
     </S.EventsWrapper>
   );
 };
