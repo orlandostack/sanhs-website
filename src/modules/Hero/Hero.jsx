@@ -1,6 +1,7 @@
-// src/modules/Hero/Hero.jsx
 import { memo, useState } from "react";
 import { Link } from "react-scroll";
+import { motion as MOTION } from "framer-motion";
+import { slideUp } from "../../utils/helpers/transitions/transitions";
 import * as S from "./Hero.styled";
 import { heroData } from "../../data/heroData";
 import HeroButton from "../../components/Button/HeroButton/HeroButton";
@@ -26,33 +27,62 @@ const Hero = memo(({ id }) => {
       <S.Overlay2 />
 
       <S.Content>
-        <S.Subheading>{heroData.subheading}</S.Subheading>
-        <S.Heading>{heroData.heading}</S.Heading>
+        <MOTION.div
+          variants={slideUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <S.Subheading>{heroData.subheading}</S.Subheading>
+        </MOTION.div>
 
-        <S.Container $margin="20px 0" $gap="2rem">
-          <Link to="footer" smooth duration={1000} spy={true}>
-            <HeroButton $color={theme.color.black}>
-              {heroData.primaryButton}
-            </HeroButton>
-          </Link>
+        <MOTION.div
+          variants={slideUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <S.Heading>{heroData.heading}</S.Heading>
+        </MOTION.div>
 
-          <Link to="announcement" smooth duration={1000} spy={true}>
-            <HeroButton $bgColor={theme.color.transparent}>
-              {heroData.secondaryButton}
-            </HeroButton>
-          </Link>
-        </S.Container>
+        <MOTION.div
+          variants={slideUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <S.Container $margin="20px 0" $gap="2rem">
+            <Link to="footer" smooth duration={1000} spy={true}>
+              <HeroButton $color={theme.color.black}>
+                {heroData.primaryButton}
+              </HeroButton>
+            </Link>
+
+            <Link to="announcement" smooth duration={1000} spy={true}>
+              <HeroButton $bgColor={theme.color.transparent}>
+                {heroData.secondaryButton}
+              </HeroButton>
+            </Link>
+          </S.Container>
+        </MOTION.div>
       </S.Content>
 
       <S.CardContainer>
         {heroData.heroCard.map((item) => (
-          <HeroCard
-            key={item.id}
-            logo={item.logo}
-            title={item.title}
-            subtitle={item.subtitle}
-            onClick={() => setActiveModal(item)}
-          />
+          <MOTION.div
+            variants={slideUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <HeroCard
+              key={item.id}
+              logo={item.logo}
+              title={item.title}
+              subtitle={item.subtitle}
+              onClick={() => setActiveModal(item)}
+            />
+          </MOTION.div>
         ))}
       </S.CardContainer>
 
