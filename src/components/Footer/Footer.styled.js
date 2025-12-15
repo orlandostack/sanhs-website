@@ -4,7 +4,7 @@ import theme from "../../styles/Theme";
 export const FooterWrapper = styled.section`
   height: auto;
   width: 100%;
-  background-color: #0f5132;
+  background-color: ${theme.color.primaryLight};
   color: ${theme.color.white};
 
   ${theme.media.mobile} {
@@ -97,13 +97,34 @@ export const ContactDescription = styled.p`
   max-width: 100%;
 `;
 
-export const Address = styled.p`
+export const AddressLink = styled.a`
   gap: 0.5rem;
   display: flex;
+  align-items: center;
   font-size: 1rem;
   margin-top: 1rem;
   color: ${theme.color.white};
   opacity: 0.9;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: ${theme.color.info};
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
 `;
 
 export const GetInTouch = styled.h5`
@@ -136,7 +157,7 @@ export const SocialIconLink = styled.a`
   background-color: rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-  
+
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);

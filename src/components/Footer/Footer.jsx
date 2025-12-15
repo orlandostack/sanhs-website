@@ -1,20 +1,36 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+  FaEnvelope,
+  FaMapMarkedAlt,
+} from "react-icons/fa";
 import { memo } from "react";
 import * as S from "./Footer.styled";
 import { footerData } from "../../data/footerData";
+
+// Google Maps URL constant for maintainability and security
+const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/place/San+Antonio+National+High+School/@13.886893,121.2869551,17z/data=!4m14!1m7!3m6!1s0x33bd3f959415f435:0x82c7d7a32a0bda0c!2sSan+Antonio+National+High+School!8m2!3d13.886893!4d121.28953!16s%2Fg%2F11bzvwvt67!3m5!1s0x33bd3f959415f435:0x82c7d7a32a0bda0c!8m2!3d13.886893!4d121.28953!16s%2Fg%2F11bzvwvt67?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D";
 
 const Footer = memo(({ id }) => {
   return (
     <S.FooterWrapper id={id}>
       <S.Content>
         <S.LogoContainer>
-            <S.Logo src={footerData.logo} alt="San Antonio National High School Logo" />
-            <S.SchoolTextContainer>
-              <S.SchoolName>SANHS</S.SchoolName>
-              <S.SchoolFullName>San Antonio National High School</S.SchoolFullName>
-            </S.SchoolTextContainer>
-          </S.LogoContainer>
+          <S.Logo
+            src={footerData.logo}
+            alt="San Antonio National High School Logo"
+          />
+          <S.SchoolTextContainer>
+            <S.SchoolName>SANHS</S.SchoolName>
+            <S.SchoolFullName>
+              San Antonio National High School
+            </S.SchoolFullName>
+          </S.SchoolTextContainer>
+        </S.LogoContainer>
 
         <S.ContactSection>
           <S.ContactTitle>We'd love to hear from you!</S.ContactTitle>
@@ -22,9 +38,17 @@ const Footer = memo(({ id }) => {
             Whether you have questions, feedback, or just want to say hello,
             feel free to reach out to us. We're always here to help.
           </S.ContactDescription>
-          <S.Address>
-            <FaMapMarkedAlt /> Sampaguita, San Antonio, Quezon, Philippines 4524
-          </S.Address>
+
+          {/* Updated Address as a clickable link */}
+          <S.AddressLink
+            href={GOOGLE_MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open San Antonio National High School location on Google Maps"
+          >
+            <FaMapMarkedAlt />
+            Sampaguita, San Antonio, Quezon, Philippines 4524
+          </S.AddressLink>
         </S.ContactSection>
 
         <S.GetInTouch>Get in touch</S.GetInTouch>
