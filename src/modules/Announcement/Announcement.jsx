@@ -8,6 +8,11 @@ const AnnouncementCard = lazy(() =>
   import("../../components/Cards/AnnouncementCard/AnnouncementCard")
 );
 
+const ANNOUNCEMENT_CONFIG = {
+  DISPLAY_LIMIT: 2,
+  VIEW_ALL_THRESHOLD: 2,
+};
+
 const Announcement = memo(({ id }) => {
   const { loading, error, announcements } = useAnnouncement();
   const navigate = useNavigate();
@@ -27,19 +32,21 @@ const Announcement = memo(({ id }) => {
       </S.AnnouncementWrapper>
     );
 
-  // Sort and take first 2 announcements
-  const cards = [...announcements]
+  const totalAnnouncements = announcements.length;
+  const shouldShowViewAll =
+    totalAnnouncements > ANNOUNCEMENT_CONFIG.VIEW_ALL_THRESHOLD;
+
+  const displayedAnnouncements = [...announcements]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 2);
+    .slice(0, ANNOUNCEMENT_CONFIG.DISPLAY_LIMIT);
 
   return (
     <S.AnnouncementWrapper id={id}>
       <S.Content>
         <SectionTitle title="Announcements" subtitle="Latest Updates" />
-
         <S.CardContainer>
           <Suspense fallback={<div>Loading cards...</div>}>
-            {cards.map((item) => (
+            {displayedAnnouncements.map((item) => (
               <AnnouncementCard
                 key={item.announcementId}
                 img={item.thumbnail?.url}
@@ -51,7 +58,10 @@ const Announcement = memo(({ id }) => {
           </Suspense>
         </S.CardContainer>
 
-        <S.ViewAllButton onClick={handleViewAll}>View All</S.ViewAllButton>
+        {/* Conditionally render View All button */}
+        {shouldShowViewAll && (
+          <S.ViewAllButton onClick={handleViewAll}>View All</S.ViewAllButton>
+        )}
       </S.Content>
     </S.AnnouncementWrapper>
   );
