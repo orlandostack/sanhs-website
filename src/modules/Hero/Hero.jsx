@@ -70,13 +70,13 @@ const Hero = memo(({ id }) => {
       <S.CardContainer>
         {heroData.heroCard.map((item) => (
           <MOTION.div
+            key={item.id}
             variants={slideUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             <HeroCard
-              key={item.id}
               logo={item.logo}
               title={item.title}
               subtitle={item.subtitle}

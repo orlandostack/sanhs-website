@@ -45,6 +45,10 @@ export const CardWrapper = styled.div`
       color: ${theme.color.white};
     }
   }
+
+  ${theme.media.tablet} {
+    width: 50vw;
+  }
 `;
 
 export const IconWrapper = styled.div`

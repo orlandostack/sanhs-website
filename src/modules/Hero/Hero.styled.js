@@ -44,7 +44,6 @@ export const Overlay2 = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  z-index: 1;
   color: white;
   text-align: center;
   padding: 0 40px;
@@ -108,5 +107,11 @@ export const CardContainer = styled(Container)`
     flex-direction: column;
     padding: 0 20px;
     bottom: -430px;
+  }
+
+  ${theme.media.tablet} {
+    flex-direction: column;
+    padding: 0 20px;
+    bottom: -6rem;
   }
 `;
