@@ -84,14 +84,60 @@ export const Navlinks = styled.ul`
 `;
 
 export const Navitems = styled.li`
+  position: relative;
+
   a {
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 
     &:hover {
       color: ${theme.color.success};
       font-weight: 600;
+    }
+
+    &.active {
+      color: ${({ $scrolled }) =>
+        $scrolled ? theme.color.white : theme.color.success};
+      font-weight: 600;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: ${({ $scrolled }) =>
+          $scrolled ? theme.color.white : theme.color.success};
+        transform: scaleX(1);
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: ${({ $active, $scrolled }) =>
+        $active
+          ? $scrolled
+            ? theme.color.success
+            : theme.color.white
+          : theme.color.success};
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
   }
 `;
@@ -120,15 +166,14 @@ export const MenuButton = styled.button`
 export const Overlay = styled.div`
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow-y: hidden;
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   pointer-events: ${({ $open }) => ($open ? "all" : "none")};
 
   transition: opacity 0.3s ease;
 
-  z-index: 998;
+  z-index: 999;
 `;
 
 export const MobileMenu = styled.ul`
@@ -151,7 +196,7 @@ export const MobileMenu = styled.ul`
   transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(-100%)")};
 
   transition: transform 0.35s ease-in-out;
-  z-index: 999;
+  z-index: 998;
 
   ${theme.media.desktop} {
     display: none;
@@ -159,6 +204,7 @@ export const MobileMenu = styled.ul`
 `;
 
 export const MobileItem = styled.li`
+  position: relative;
   padding: 20px;
   font-size: 18px;
   border-bottom: 1px solid ${theme.color.gray[100]};
@@ -168,5 +214,56 @@ export const MobileItem = styled.li`
     cursor: pointer;
     display: block;
     width: 100%;
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+
+    /* Active link underline for mobile */
+    &.active {
+      color: ${theme.color.success};
+      font-weight: 600;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: ${theme.color.success};
+        transform: scaleX(1);
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &:hover {
+      color: ${theme.color.success};
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: ${theme.color.success};
+        transform: scaleX(1);
+        transform-origin: bottom left;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: ${theme.color.success};
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
   }
 `;

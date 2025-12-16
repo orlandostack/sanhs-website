@@ -6,6 +6,7 @@ import { Link } from "react-scroll";
 const Navbar = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   const MenuIcon = navbarData.menu;
 
@@ -15,6 +16,10 @@ const Navbar = memo(() => {
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  const handleSetActive = useCallback((to) => {
+    setActiveLink(to);
   }, []);
 
   useEffect(() => {
@@ -46,13 +51,17 @@ const Navbar = memo(() => {
       {/* Desktop Navlinks */}
       <S.Navlinks>
         {navbarData.links.map((link) => (
-          <S.Navitems key={link.to}>
+          <S.Navitems key={link.to} $active={activeLink === link.to}>
             <Link
               to={link.to}
               smooth
               duration={1000}
               spy
               offset={-70}
+              onSetActive={handleSetActive}
+              onSetInactive={() => setActiveLink("")}
+              activeClass="active"
+              spyThrottle={500}
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
@@ -78,13 +87,17 @@ const Navbar = memo(() => {
             <S.Brand>{navbarData.brand}</S.Brand>
           </S.Container>
           {navbarData.links.map((link) => (
-            <S.MobileItem key={link.to}>
+            <S.MobileItem key={link.to} $active={activeLink === link.to}>
               <Link
                 to={link.to}
                 smooth
                 duration={1000}
                 spy
                 offset={-70}
+                onSetActive={handleSetActive}
+                onSetInactive={() => setActiveLink("")}
+                activeClass="active"
+                spyThrottle={500}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
