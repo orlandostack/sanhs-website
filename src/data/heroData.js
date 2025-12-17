@@ -26,8 +26,8 @@ export const heroData = {
     {
       id: "philosophy",
       logo: SanhsLogo,
-      title: "Philosophy",
-      subtitle: "Click to view philosophy",
+      title: "Core Values",
+      subtitle: "Click to view core values",
     },
   ],
 };

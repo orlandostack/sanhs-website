@@ -57,7 +57,6 @@ const Hero = memo(({ id }) => {
                 {heroData.primaryButton}
               </HeroButton>
             </Link>
-
             <Link to="announcement" smooth duration={1000} spy={true}>
               <HeroButton $bgColor={theme.color.transparent}>
                 {heroData.secondaryButton}
