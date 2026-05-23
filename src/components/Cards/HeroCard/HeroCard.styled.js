@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import theme from "../../../styles/Theme";
 
-export const Title = styled.h3`
-  font-size: ${theme.font.size.xl};
-  margin: 0;
-  font-weight: 700;
+export const Title = styled.p`
+  font-size: ${theme.font.size["2xl"]};
+  font-weight: 500;
   color: ${theme.color.white};
 `;
 
 export const Subtitle = styled.p`
   font-size: ${theme.font.size.base};
-  color: ${theme.color.gray};
   margin: 0;
   color: ${theme.color.white};
 `;
@@ -19,7 +17,7 @@ export const CardWrapper = styled.div`
   width: 300px;
   height: 160px;
   background: ${theme.color.white};
-  border-radius: 18px;
+  border-radius: 16px;
   box-shadow: ${theme.shadow.soft};
   display: flex;
   flex-direction: column;

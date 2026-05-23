@@ -55,31 +55,23 @@ export const Content = styled.div`
   position: relative;
   color: white;
   text-align: center;
-  padding: 0 40px;
-
-  h1,
-  h2 {
-    line-height: 1.5;
-    margin: 0;
-  }
 `;
 
 export const Heading = styled.h1`
-  font-size: ${theme.font.size.xl};
-  font-weight: normal;
-
-  ${theme.media.mobile} {
-    font-size: ${theme.font.size.lg};
-  }
-`;
-
-export const Subheading = styled.h2`
   font-size: 50px;
+  font-weight: 600;
 
   ${theme.media.mobile} {
     font-size: ${theme.font.size["3xl"]};
   }
 `;
+
+export const Subheading = styled.p`
+  font-size: ${theme.font.size.base};
+  font-weight: normal;
+`;
+
+
 
 export const Container = styled.div`
   margin: ${({ $margin }) => $margin || "20px 0 0"};

@@ -9,7 +9,7 @@ export const color = {
   white: "#ffffff",
   black: "#111111",
 
-  primary: "#003400",
+  primary: "#007C00",
   primaryLight: "#145b2a",
   primaryDark: "#062110",
   primaryAccent: "#25810dff",
@@ -37,7 +37,7 @@ export const color = {
 
 export const shadow = {
   thin: "0 2px 4px rgba(0, 0, 0, 0.05)",
-  soft: "0 4px 6px rgba(0, 0, 0, 0.07)",
+  soft: "1px 1px 5px 1px rgba(0, 0, 0, 0.07)",
   medium: "0 8px 25px rgba(0, 0, 0, 0.12)",
   large: "0 20px 40px rgba(0, 0, 0, 0.15)",
 };
@@ -60,8 +60,8 @@ export const spacing = {
 
 export const font = {
   family: {
-    body: "'Inter', sans-serif",
-    heading: "'Inter', sans-serif",
+    body: "'Poppins', sans-serif",
+    heading: "'Poppins', sans-serif",
   },
   size: {
     xs: "12px",

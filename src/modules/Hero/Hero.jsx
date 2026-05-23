@@ -28,6 +28,15 @@ const Hero = memo(({ id }) => {
       <S.Overlay2 />
 
       <S.Content>
+
+        <MOTION.div
+          variants={slideUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <S.Heading>{heroData.heading}</S.Heading>
+        </MOTION.div>
         <MOTION.div
           variants={slideUp}
           initial="hidden"
@@ -43,18 +52,9 @@ const Hero = memo(({ id }) => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <S.Heading>{heroData.heading}</S.Heading>
-        </MOTION.div>
-
-        <MOTION.div
-          variants={slideUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
           <S.Container $margin="20px 0" $gap="2rem">
             <Link to="footer" smooth duration={1000} spy={true}>
-              <HeroButton $color={theme.color.black}>
+              <HeroButton $bgColor={theme.color.primary} $border={theme.color.primary}>
                 {heroData.primaryButton}
               </HeroButton>
             </Link>
