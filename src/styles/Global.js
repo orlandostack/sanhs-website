@@ -29,11 +29,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 112px 65px 80px;
 
     ${theme.media.tablet} {
-      padding: 80px 20px 50px;
+      padding: 80px 30px 50px;
     }
 
     ${theme.media.mobile} {
-      padding: 80px 20px 50px;
+      padding: 80px 30px 50px;
     }
   }
 

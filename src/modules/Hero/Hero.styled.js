@@ -55,7 +55,6 @@ export const Content = styled.div`
   position: relative;
   color: white;
   text-align: center;
-  padding: 0 40px;
 
   h1,
   h2 {
