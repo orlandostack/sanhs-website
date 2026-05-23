@@ -12,6 +12,9 @@ export const GET_BLOG = gql`
       content
       isFeatured
       date
+      gallery {
+        url
+      }
     }
   }
 `;

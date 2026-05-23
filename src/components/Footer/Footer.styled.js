@@ -2,19 +2,126 @@ import styled from "styled-components";
 import theme from "../../styles/Theme";
 
 export const FooterWrapper = styled.section`
-  height: auto;
-  width: 100%;
-  background-color: ${theme.color.primaryLight};
-  color: ${theme.color.white};
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 12rem;
+`;
+
+export const CallToAction = styled.div`
+  margin: auto;
+  max-width: 1280px;
+  background: linear-gradient(to right, #1d1f1d, #046a04, #008000);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem 2rem 4rem;
+  position: relative;
+  box-sizing: border-box;
 
   ${theme.media.mobile} {
+    border-radius: 1rem;
+    width: 90%;
   }
+
+  .cta-text {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cta-text h3 {
+    margin: 0;
+    color: ${theme.color.white};
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .cta-text p {
+    margin: 0;
+    color: ${theme.color.white};
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .cta-text button {
+    align-self: flex-start;
+    padding: 1rem 2.5rem;
+    background-color: #008000;
+    color: ${theme.color.white};
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+
+    &:hover {
+      transform: scale(1.03);
+      background-color: #009900;
+    }
+  }
+
+  .cta-image {
+    width: 35%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+
+    margin-top: -10rem;
+    margin-bottom: -2rem;
+  }
+
+  .cta-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  ${theme.media.mobile} {
+    flex-direction: column-reverse;
+    padding: 3rem 2rem;
+    text-align: center;
+    gap: 2rem;
+
+    .cta-text {
+      width: 100%;
+      align-items: center;
+    }
+
+    .cta-text button {
+      align-self: center;
+    }
+
+    .cta-image {
+      width: 60%;
+      margin: 0;
+
+      margin-top: -10rem;
+      margin-bottom: -2rem;
+    }
+  }
+`;
+
+export const FooterDetails = styled.div`
+  height: auto;
+  width: 100%;
+  background-color: #033a03;
+  color: ${theme.color.white};
 `;
 
 export const Content = styled.div`
   max-width: 85vw;
   margin: auto;
-  padding: 5rem 0 4rem 0;
+  padding: 2rem 0 1rem 0;
   display: flex;
   flex-direction: column;
 `;
@@ -171,7 +278,6 @@ export const SocialIcon = styled.span`
 
 export const Copyright = styled.p`
   font-size: 0.9rem;
-  margin: 0;
   color: ${theme.color.white};
   opacity: 0.8;
   border-top: 1px solid rgba(255, 255, 255, 0.2);

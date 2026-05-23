@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { GoArrowLeft } from "react-icons/go";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import * as S from "./BlogContent.styled";
 import { useBlog } from "../../utils/hooks/useBlog";
 
@@ -34,9 +36,7 @@ const BlogContent = () => {
     return (
       <S.Wrapper>
         <S.Content>
-          <S.IconWrapper onClick={handleBack}>
-            <GoArrowLeft />
-          </S.IconWrapper>
+          <Navbar />
           <h2>Blog post not found</h2>
           <p>
             The blog post you're looking for doesn't exist or has been removed.
@@ -56,14 +56,31 @@ const BlogContent = () => {
   return (
     <S.Wrapper>
       <S.Content>
-        <S.IconWrapper onClick={handleBack}>
-          <GoArrowLeft />
-        </S.IconWrapper>
-        <S.Title>{blog.title}</S.Title>
-        <S.Subtitle>{blog.subtitle}</S.Subtitle>
-        <S.DateText>{formatDate(blog.date)}</S.DateText>
-        <S.ThumbnailImage src={blog.thumbnail?.url} alt={blog.title} />
-        <S.BlogText>{blog.content}</S.BlogText>
+        <Navbar />
+        <S.BlogThumbnail>
+          <S.ThumbnailImage src={blog.thumbnail?.url} alt={blog.title} />
+          <S.Overlay />
+          <S.Title className="Thumbnail-Title">{blog.title}</S.Title>
+          <S.Subtitle className="Thumbnail-Subtitle">
+            {blog.subtitle}
+          </S.Subtitle>
+        </S.BlogThumbnail>
+
+        <S.Body>
+          <S.Gallery>
+            {blog.gallery?.map((image, index) => (
+              <S.GalleryImage
+                key={index}
+                src={image.url}
+                alt={`Gallery ${index + 1}`}
+              />
+            ))}
+          </S.Gallery>
+          <S.Title>{blog.title}</S.Title>
+          <S.DateText>{formatDate(blog.date)}</S.DateText>
+          <S.BlogText>{blog.content}</S.BlogText>
+        </S.Body>
+        <Footer />
       </S.Content>
     </S.Wrapper>
   );
