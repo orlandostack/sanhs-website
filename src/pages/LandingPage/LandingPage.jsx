@@ -8,50 +8,60 @@ import Blog from "../../modules/Blog";
 import Footer from "../../components/Footer";
 import Announcement from "../../modules/Announcement";
 import Events from "../../modules/Events";
+import CTA from "../../components/CtaSection/CTA";
 
 const LandingPage = () => {
   return (
     <>
       <Navbar />
 
-      <MOTION.section variants={fadeIn} initial="hidden" animate="visible">
+      <MOTION.div variants={fadeIn} initial="hidden" animate="visible">
         <Hero id="hero" />
-      </MOTION.section>
+      </MOTION.div>
 
-      <MOTION.section
+      <MOTION.div
         variants={slideUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
         <About id="about" />
-      </MOTION.section>
+      </MOTION.div>
 
-      <MOTION.section
+      <MOTION.div
         variants={slideUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
         <Blog id="blogs" />
-      </MOTION.section>
+      </MOTION.div>
 
-      <MOTION.section
+      <MOTION.div
         variants={slideUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
         <Announcement id="announcement" />
-      </MOTION.section>
+      </MOTION.div>
 
-      <MOTION.section
+      <MOTION.div
         variants={slideUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
         <Events id="events" />
+      </MOTION.div>
+
+      <MOTION.section
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <CTA id="call-to-action" />
       </MOTION.section>
 
       <MOTION.footer

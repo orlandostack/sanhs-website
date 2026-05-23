@@ -12,7 +12,6 @@ export const Wrapper = styled.section`
 // Content container
 export const Content = styled.div`
   max-width: 85vw;
-  margin: auto;
   display: flex;
   flex-direction: column;
 

@@ -7,7 +7,6 @@ import {
   FaEnvelope,
   FaMapMarkedAlt,
 } from "react-icons/fa";
-import CTAImage from "../../assets/cta-image.png";
 import { memo } from "react";
 import * as S from "./Footer.styled";
 import { footerData } from "../../data/footerData";
@@ -19,20 +18,6 @@ const GOOGLE_MAPS_URL =
 const Footer = memo(({ id }) => {
   return (
     <S.FooterWrapper id={id}>
-      <S.CallToAction>
-        <div className="cta-text">
-          <h3>Let’s Talk — We’re Here to Help</h3>
-          <p>
-            Have questions about enrollment, academic programs, or school
-            activities? Reach out to us anytime—our team is ready to guide you
-            every step of the way.
-          </p>
-          <button>Message Us</button>
-        </div>
-        <div className="cta-image">
-          <img src={CTAImage} alt="Call to Action Image" />
-        </div>
-      </S.CallToAction>
       <S.FooterDetails>
         <S.Content>
           <S.LogoContainer>

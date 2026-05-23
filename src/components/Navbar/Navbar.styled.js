@@ -11,7 +11,7 @@ export const NavbarWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
 
-  padding: 10px 40px;
+  padding: 10px 65px;
   background-color: ${({ $scrolled }) =>
     $scrolled ? theme.color.white : theme.color.transparent};
   color: ${({ $scrolled }) =>
@@ -100,7 +100,7 @@ export const Navitems = styled.li`
 
     &.active {
       color: ${({ $scrolled }) =>
-        $scrolled ? theme.color.white : theme.color.success};
+    $scrolled ? theme.color.white : theme.color.success};
       font-weight: 600;
 
       &::after {
@@ -111,7 +111,7 @@ export const Navitems = styled.li`
         width: 100%;
         height: 2px;
         background-color: ${({ $scrolled }) =>
-          $scrolled ? theme.color.white : theme.color.success};
+    $scrolled ? theme.color.white : theme.color.success};
         transform: scaleX(1);
         transition: transform 0.3s ease;
       }
@@ -125,11 +125,11 @@ export const Navitems = styled.li`
       width: 100%;
       height: 2px;
       background-color: ${({ $active, $scrolled }) =>
-        $active
-          ? $scrolled
-            ? theme.color.success
-            : theme.color.white
-          : theme.color.success};
+    $active
+      ? $scrolled
+        ? theme.color.success
+        : theme.color.white
+      : theme.color.success};
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s ease;
@@ -159,7 +159,7 @@ export const MenuButton = styled.button`
 
   svg {
     color: ${({ $scrolled }) =>
-      $scrolled ? theme.color.black : theme.color.white};
+    $scrolled ? theme.color.black : theme.color.white};
   }
 `;
 

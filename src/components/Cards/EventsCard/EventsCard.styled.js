@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from "../../../styles/Theme";
 
-export const EventsCardWrapper = styled.section`
+export const EventsCardWrapper = styled.div`
   height: auto;
   width: 100%;
   background-color: ${theme.color.white};

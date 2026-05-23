@@ -4,14 +4,8 @@ import { Button } from "antd";
 
 export const EventsWrapper = styled.section`
   height: auto;
-  max-width: 85vw;
-  margin: 2rem auto 4rem auto;
   background-color: white;
   align-items: center;
-
-  ${theme.media.mobile} {
-    max-width: 92vw;
-  }
 `;
 
 export const Container = styled.div`

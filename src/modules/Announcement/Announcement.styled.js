@@ -8,16 +8,10 @@ export const AnnouncementWrapper = styled.section`
 `;
 
 export const Content = styled.div`
-  max-width: 85vw;
   margin: auto;
-  padding: 5rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
-  ${theme.media.mobile} {
-    max-width: 92vw;
-  }
 `;
 
 export const CardContainer = styled.div`

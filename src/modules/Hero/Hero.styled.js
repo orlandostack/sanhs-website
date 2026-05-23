@@ -10,7 +10,16 @@ export const HeroWrapper = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 500px;
+  padding-top: 182px;
+
+   ${theme.media.tablet} {
+  padding-top: 120px;
+  }
+
+  ${theme.media.mobile} {
+  padding-top: 120px;
+  }
 `;
 
 export const Overlay1 = styled.div`
@@ -47,16 +56,11 @@ export const Content = styled.div`
   color: white;
   text-align: center;
   padding: 0 40px;
-  padding-top: 12%;
 
   h1,
   h2 {
     line-height: 1.5;
     margin: 0;
-  }
-
-  ${theme.media.mobile} {
-    padding: 150px 20px 0;
   }
 `;
 
@@ -112,6 +116,6 @@ export const CardContainer = styled(Container)`
   ${theme.media.tablet} {
     flex-direction: column;
     padding: 0 20px;
-    bottom: -6rem;
+    bottom: -27rem;
   }
 `;

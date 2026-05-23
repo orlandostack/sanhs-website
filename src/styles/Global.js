@@ -17,8 +17,24 @@ const GlobalStyle = createGlobalStyle`
     background: ${theme.color.background};
   }
 
+
   body {
+    max-width: 1440px;
+    margin: 0 auto;
     scroll-behavior: smooth;
+  }
+
+  section {
+    width: 100%;
+    padding: 112px 65px 80px;
+
+    ${theme.media.tablet} {
+      padding: 80px 20px 50px;
+    }
+
+    ${theme.media.mobile} {
+      padding: 80px 20px 50px;
+    }
   }
 
   code {

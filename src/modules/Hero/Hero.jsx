@@ -1,3 +1,4 @@
+// src/modules/Hero/Hero.jsx
 import { memo, useState } from "react";
 import { Link } from "react-scroll";
 import { motion as MOTION } from "framer-motion";
@@ -93,8 +94,8 @@ const Hero = memo(({ id }) => {
           loading
             ? "Loading..."
             : error
-            ? "Failed to load content"
-            : modalContent
+              ? "Failed to load content"
+              : modalContent
         }
       />
     </S.HeroWrapper>

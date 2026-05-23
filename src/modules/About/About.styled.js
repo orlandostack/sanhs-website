@@ -4,24 +4,22 @@ import theme from "../../styles/Theme";
 export const AboutWrapper = styled.section`
   height: auto;
   width: 100%;
-  margin: 10rem 0 2rem 0;
+
+  ${theme.media.tablet} {
+    margin-top: 22rem;
+  }
 
   ${theme.media.mobile} {
-    margin-top: 30rem;
+    margin-top: 22rem;
   }
 `;
 
 export const Content = styled.div`
-  max-width: 85vw;
   margin: auto;
   padding-top: 4rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
-  ${theme.media.mobile} {
-    max-width: 92vw;
-  }
 `;
 
 export const AboutHeader = styled.div`
