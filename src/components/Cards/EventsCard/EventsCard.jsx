@@ -13,7 +13,7 @@ function EventsCard() {
       {events.map((event) => (
         <S.Card key={event.eventId}>
           <S.Date>{event.date}</S.Date>
-          <S.Details>{event.title}</S.Details>
+          <S.EventTitle>{event.title}</S.EventTitle>
         </S.Card>
       ))}
     </S.EventsCardWrapper>

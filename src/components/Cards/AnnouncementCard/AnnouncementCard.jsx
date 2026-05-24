@@ -53,7 +53,7 @@ const AnnouncementCard = memo(({ img, date, title, body }) => {
             </S.CardDescription>
             {!isExpanded && isOverflowing && (
               <S.ToggleButton onClick={toggleExpand}>
-                see more...
+                see more
               </S.ToggleButton>
             )}
           </S.DescriptionWrapper>

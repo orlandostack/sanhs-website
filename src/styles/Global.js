@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
   section {
     width: 100%;
     padding: 112px 65px 80px;
+    background-color: ${theme.color.section};
 
     ${theme.media.tablet} {
       padding: 80px 30px 50px;

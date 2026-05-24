@@ -125,7 +125,6 @@ export const ToggleButton = styled.button`
   color: ${theme.color.primary};
   cursor: pointer;
   font-size: ${theme.font.size.sm};
-  font-weight: 500;
   padding: 0;
   margin: 0;
   white-space: nowrap;
@@ -134,6 +133,8 @@ export const ToggleButton = styled.button`
   font-family: inherit;
   text-align: left;
   width: fit-content;
+  text-decoration: underline;
+
   
   &:hover {
     color: ${theme.color.primary_dark};
