@@ -18,11 +18,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
-  body {
+  body, main {
     max-width: 1440px;
     margin: 0 auto;
     scroll-behavior: smooth;
-
+    position: relative;
   }
 
   section {

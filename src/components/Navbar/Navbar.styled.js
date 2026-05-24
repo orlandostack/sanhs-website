@@ -1,16 +1,11 @@
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 
-export const Header = styled.header`
-  max-width: 1440px;
-  position: relative;
-`
-
 export const NavbarWrapper = styled.nav`
+  max-width: 1440px;
   width: 100%;
   position: fixed;
   top: 0;
-  margin: 0 auto;
   z-index: 999;
 
   display: flex;
