@@ -12,8 +12,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${theme.font.family.body};
-    line-height: 1.6;
-    color: ${theme.color.primary};
+    color: ${theme.color.black};
     background: ${theme.color.background};
     line-height: 1.5;
   }
@@ -23,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1440px;
     margin: 0 auto;
     scroll-behavior: smooth;
+
   }
 
   section {

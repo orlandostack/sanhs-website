@@ -2,25 +2,17 @@ import styled from "styled-components";
 import theme from "../../styles/Theme";
 
 export const SectionContainer = styled.div`
-  text-align: left;
-  margin-bottom: 2rem;
-
-  ${theme.media.mobile} {
-    text-align: center;
-  }
+  text-align: center;
 `;
 
 export const Title = styled.h2`
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 600;
   color: ${(props) => props.$titleColor || theme.color.primaryAccent};
-  line-height: 1.2;
 `;
 
 export const SubTitle = styled.p`
-  font-size: 1.2rem;
-  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 400;
   color: ${(props) => props.$subtitleColor || theme.color.black};
-  line-height: 1.5;
 `;

@@ -14,19 +14,21 @@ export const color = {
   primaryDark: "#062110",
   primaryAccent: "#25810dff",
 
+
   gray: {
     100: "#f2f5f2",
     200: "#e3e7e3",
     300: "#cfd6cf",
     400: "#b9c1b9",
     500: "#8d998d",
-    600: "#697569",
+    600: "#A9A9A9",
     700: "#505c50",
     800: "#2f3a2f",
     900: "#1c221c",
   },
 
   background: "#ffffff",
+  section: "#EFFFEF",
   surface: "#f9fdf9",
 
   warning: "#fbbf24",
