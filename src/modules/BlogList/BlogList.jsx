@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react";
 import { GoArrowLeft } from "react-icons/go";
 import SectionTitle from "../../components/SectionTitle";
-import * as S from "./Blogs.styled";
+import * as S from "./BlogList.styled";
 import { useBlog } from "../../utils/hooks/useBlog";
 
 const formatDate = (dateString) => {
@@ -10,7 +10,7 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString("en-US", options);
 };
 
-const Blogs = () => {
+const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const { loading, error, blogs } = useBlog();
@@ -101,4 +101,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default BlogList;
