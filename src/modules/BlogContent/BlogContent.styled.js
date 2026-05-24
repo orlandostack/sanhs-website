@@ -62,9 +62,6 @@ export const Overlay = styled.div`
   z-index: 1;
 `;
 
-/**
- * Wrapper for title and subtitle to prevent overlap
- */
 export const ThumbnailContentWrapper = styled.div`
   position: absolute;
   top: 50%;
