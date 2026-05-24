@@ -55,15 +55,6 @@ export const Content = styled.div`
   position: relative;
   color: white;
   text-align: center;
-<<<<<<< HEAD
-=======
-
-  h1,
-  h2 {
-    line-height: 1.5;
-    margin: 0;
-  }
->>>>>>> develop
 `;
 
 export const Heading = styled.h1`

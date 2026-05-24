@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 
-export const NavbarWrapper = styled.nav`
+export const Header = styled.header`
   max-width: 1440px;
-  min-width: 1440px;
+  position: relative;
+`
+
+export const NavbarWrapper = styled.nav`
+  width: 100%;
   position: fixed;
   top: 0;
   margin: 0 auto;
@@ -104,7 +108,7 @@ export const Navitems = styled.li`
 
     &.active {
       color: ${({ $scrolled }) =>
-        $scrolled ? theme.color.white : theme.color.success};
+    $scrolled ? theme.color.white : theme.color.success};
       font-weight: 600;
 
       &::after {
@@ -115,7 +119,7 @@ export const Navitems = styled.li`
         width: 100%;
         height: 2px;
         background-color: ${({ $scrolled }) =>
-          $scrolled ? theme.color.white : theme.color.success};
+    $scrolled ? theme.color.white : theme.color.success};
         transform: scaleX(1);
         transition: transform 0.3s ease;
       }
@@ -129,11 +133,11 @@ export const Navitems = styled.li`
       width: 100%;
       height: 2px;
       background-color: ${({ $active, $scrolled }) =>
-        $active
-          ? $scrolled
-            ? theme.color.success
-            : theme.color.white
-          : theme.color.success};
+    $active
+      ? $scrolled
+        ? theme.color.success
+        : theme.color.white
+      : theme.color.success};
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s ease;
@@ -163,7 +167,7 @@ export const MenuButton = styled.button`
 
   svg {
     color: ${({ $scrolled }) =>
-      $scrolled ? theme.color.black : theme.color.white};
+    $scrolled ? theme.color.black : theme.color.white};
   }
 `;
 
