@@ -2,9 +2,11 @@ import styled from "styled-components";
 import theme from "../../styles/Theme";
 
 export const NavbarWrapper = styled.nav`
-  width: 100%;
+  max-width: 1440px;
+  min-width: 1440px;
   position: fixed;
   top: 0;
+  margin: 0 auto;
   z-index: 999;
 
   display: flex;
@@ -17,7 +19,9 @@ export const NavbarWrapper = styled.nav`
   color: ${({ $scrolled }) =>
     $scrolled ? theme.color.primaryLight : theme.color.white};
   box-shadow: ${({ $scrolled }) => ($scrolled ? theme.shadow.medium : "none")};
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 
   ${theme.media.mobile} {
     padding: 10px 20px;
@@ -100,7 +104,7 @@ export const Navitems = styled.li`
 
     &.active {
       color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.white : theme.color.success};
+        $scrolled ? theme.color.white : theme.color.success};
       font-weight: 600;
 
       &::after {
@@ -111,7 +115,7 @@ export const Navitems = styled.li`
         width: 100%;
         height: 2px;
         background-color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.white : theme.color.success};
+          $scrolled ? theme.color.white : theme.color.success};
         transform: scaleX(1);
         transition: transform 0.3s ease;
       }
@@ -125,11 +129,11 @@ export const Navitems = styled.li`
       width: 100%;
       height: 2px;
       background-color: ${({ $active, $scrolled }) =>
-    $active
-      ? $scrolled
-        ? theme.color.success
-        : theme.color.white
-      : theme.color.success};
+        $active
+          ? $scrolled
+            ? theme.color.success
+            : theme.color.white
+          : theme.color.success};
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s ease;
@@ -159,7 +163,7 @@ export const MenuButton = styled.button`
 
   svg {
     color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.black : theme.color.white};
+      $scrolled ? theme.color.black : theme.color.white};
   }
 `;
 
