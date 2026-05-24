@@ -75,6 +75,12 @@ export const font = {
     "2xl": "22px",
     "3xl": "28px",
   },
+
+  heading: {
+    h1: "52px",
+    h2: "36px",
+    h3: "22px"
+  }
 };
 
 export const theme = {
