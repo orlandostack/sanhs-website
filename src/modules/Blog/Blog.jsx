@@ -37,7 +37,10 @@ const BlogContent = memo(({ onViewAll, config }) => {
 
   return (
     <S.Content>
-      <SectionTitle title="Featured" subtitle="School Highlights & Features" />
+      <SectionTitle
+        title="Featured Blogs"
+        subtitle="School Highlights & Features"
+      />
 
       <MOTION.div
         variants={fadeIn}
@@ -46,30 +49,10 @@ const BlogContent = memo(({ onViewAll, config }) => {
         viewport={{ once: true }}
       >
         <BlogCarousel />
+        <S.ButtonWrapper>
+          <S.ViewAllButton onClick={onViewAll}>View all</S.ViewAllButton>
+        </S.ButtonWrapper>
       </MOTION.div>
-
-      <SectionTitle title="Blog news" subtitle="Recent Blog Posts" />
-
-      {loading ? (
-        <div>Loading blogs...</div>
-      ) : error ? (
-        <div>Failed to load blogs</div>
-      ) : (
-        <>
-          <MOTION.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <BlogCard displayLimit={config.DISPLAY_LIMIT} />
-          </MOTION.div>
-
-          {shouldShowViewAll && (
-            <S.ViewAllButton onClick={onViewAll}>View all</S.ViewAllButton>
-          )}
-        </>
-      )}
     </S.Content>
   );
 });

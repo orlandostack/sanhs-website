@@ -6,20 +6,28 @@ export const HeroWrapper = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
+  padding-top: 182px;
+  height: 500px;
+
+  ${theme.media.tablet} {
+    padding-top: 120px;
+  }
+
+  ${theme.media.mobile} {
+    padding-top: 120px;
+  }
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  inset: 0;
   background: url(${heroData.bgImage});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 500px;
-  padding-top: 182px;
 
-   ${theme.media.tablet} {
-  padding-top: 120px;
-  }
-
-  ${theme.media.mobile} {
-  padding-top: 120px;
-  }
+  border-radius: 0 0 1rem 1rem;
+  overflow: hidden;
 `;
 
 export const Overlay1 = styled.div`
@@ -70,8 +78,6 @@ export const Subheading = styled.p`
   font-size: ${theme.font.size.base};
   font-weight: normal;
 `;
-
-
 
 export const Container = styled.div`
   margin: ${({ $margin }) => $margin || "20px 0 0"};

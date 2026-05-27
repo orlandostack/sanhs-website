@@ -22,13 +22,19 @@ export const Content = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const ViewAllButton = styled(Button)`
   width: auto;
-  align-self: center;
-  padding: 1rem 1.5rem;
+  padding: 1.2rem 2rem;
+  background-color: ${theme.color.primaryAccent} !important;
+  color: ${theme.color.white} !important;
 
-  &&&:hover {
-    border-color: ${theme.color.primaryAccent};
-    color: ${theme.color.primaryAccent};
+  &:hover {
+    transform: scale(1.05);
+    border: 1px solid ${theme.color.primaryAccent} !important;
   }
 `;

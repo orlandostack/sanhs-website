@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 
-
-
 export const Wrapper = styled.section`
   width: 100%;
   height: auto;
@@ -23,13 +21,14 @@ export const Content = styled.div`
 
 export const BlogThumbnail = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
+  margin: 0 auto;
   height: 80vh;
-  margin-left: calc(-50vw + 50%);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0 0 1rem 1rem;
 
   /* Tablet breakpoint */
   ${theme.media.tablet} {
@@ -39,6 +38,7 @@ export const BlogThumbnail = styled.div`
   /* Mobile breakpoint */
   ${theme.media.mobile} {
     height: 50vh;
+    border-radius: 0;
   }
 `;
 
@@ -119,7 +119,6 @@ export const ThumbnailSubtitle = styled.h2`
   }
 `;
 
-
 export const Body = styled.div`
   width: 100%;
   display: flex;
@@ -137,7 +136,6 @@ export const Body = styled.div`
     padding-bottom: 1.5rem;
   }
 `;
-
 
 export const Gallery = styled.div`
   width: 100%;
@@ -164,7 +162,9 @@ export const GalleryImage = styled.img`
   object-fit: cover;
   border-radius: ${theme.radius.md};
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: ${theme.shadow.soft};
 
   &:hover {

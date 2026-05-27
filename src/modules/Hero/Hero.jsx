@@ -24,11 +24,12 @@ const Hero = memo(({ id }) => {
 
   return (
     <S.HeroWrapper id={id}>
-      <S.Overlay1 />
-      <S.Overlay2 />
+      <S.Background>
+        <S.Overlay1 />
+        <S.Overlay2 />
+      </S.Background>
 
       <S.Content>
-
         <MOTION.div
           variants={slideUp}
           initial="hidden"
@@ -54,7 +55,10 @@ const Hero = memo(({ id }) => {
         >
           <S.Container $margin="20px 0" $gap="2rem">
             <Link to="footer" smooth duration={1000} spy={true}>
-              <HeroButton $bgColor={theme.color.primary} $border={theme.color.primary}>
+              <HeroButton
+                $bgColor={theme.color.primary}
+                $border={theme.color.primary}
+              >
                 {heroData.primaryButton}
               </HeroButton>
             </Link>
