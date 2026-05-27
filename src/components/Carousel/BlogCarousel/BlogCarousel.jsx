@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import styled from "styled-components";
@@ -9,6 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const BlogCarousel = () => {
+  const navigate = useNavigate();
   const { loading, error, blogs } = useBlog();
   const carouselRef = useRef(null);
 
@@ -16,6 +18,10 @@ const BlogCarousel = () => {
   if (error) return <p>Failed to load featured blogs</p>;
 
   const featuredBlogs = blogs.filter((blog) => blog.isFeatured);
+
+  const handleNavigate = (id) => {
+    navigate(`/blog/${id}`);
+  };
 
   const carouselStyle = {
     margin: 0,
@@ -77,10 +83,12 @@ const BlogCarousel = () => {
           {featuredBlogs.map((blog) => (
             <div key={blog.blogId}>
               <div
+                onClick={() => handleNavigate(blog.blogId)}
                 style={{
                   ...carouselStyle,
                   background: `url(${blog.thumbnail?.url}) no-repeat center center`,
                   backgroundSize: "cover",
+                  cursor: "pointer",
                 }}
               >
                 <div style={overlayStyle}>
