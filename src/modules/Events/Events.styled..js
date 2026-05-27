@@ -4,8 +4,9 @@ import { Button } from "antd";
 
 export const EventsWrapper = styled.section`
   height: auto;
-  background-color: white;
+  background-color: ${theme.color.surface};
   align-items: center;
+
 `;
 
 export const Container = styled.div`

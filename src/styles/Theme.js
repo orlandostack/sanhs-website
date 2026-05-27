@@ -9,10 +9,11 @@ export const color = {
   white: "#ffffff",
   black: "#111111",
 
-  primary: "#003400",
+  primary: "#007C00",
   primaryLight: "#145b2a",
   primaryDark: "#062110",
   primaryAccent: "#25810dff",
+
 
   gray: {
     100: "#f2f5f2",
@@ -20,13 +21,14 @@ export const color = {
     300: "#cfd6cf",
     400: "#b9c1b9",
     500: "#8d998d",
-    600: "#697569",
+    600: "#A9A9A9",
     700: "#505c50",
     800: "#2f3a2f",
     900: "#1c221c",
   },
 
   background: "#ffffff",
+  section: "#EFFFEF",
   surface: "#f9fdf9",
 
   warning: "#fbbf24",
@@ -37,7 +39,7 @@ export const color = {
 
 export const shadow = {
   thin: "0 2px 4px rgba(0, 0, 0, 0.05)",
-  soft: "0 4px 6px rgba(0, 0, 0, 0.07)",
+  soft: "1px 1px 5px 1px rgba(0, 0, 0, 0.07)",
   medium: "0 8px 25px rgba(0, 0, 0, 0.12)",
   large: "0 20px 40px rgba(0, 0, 0, 0.15)",
 };
@@ -46,7 +48,8 @@ export const radius = {
   sm: "6px",
   md: "10px",
   lg: "16px",
-  full: "999px",
+  xl: "30px",
+  full: "100%",
 };
 
 export const spacing = {
@@ -60,8 +63,8 @@ export const spacing = {
 
 export const font = {
   family: {
-    body: "'Inter', sans-serif",
-    heading: "'Inter', sans-serif",
+    body: "'Poppins', sans-serif",
+    heading: "'Poppins', sans-serif",
   },
   size: {
     xs: "12px",
@@ -72,6 +75,12 @@ export const font = {
     "2xl": "22px",
     "3xl": "28px",
   },
+
+  heading: {
+    h1: "52px",
+    h2: "36px",
+    h3: "22px"
+  }
 };
 
 export const theme = {

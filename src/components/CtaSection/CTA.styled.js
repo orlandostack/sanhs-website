@@ -12,7 +12,7 @@ export const CallToAction = styled.div`
   box-sizing: border-box;
   gap: 2rem;
   position: relative;
-  /* ── Text block ── */
+  
   .cta-text {
     width: 60%;
     display: flex;

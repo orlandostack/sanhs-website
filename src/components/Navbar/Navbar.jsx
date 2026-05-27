@@ -38,6 +38,7 @@ const Navbar = memo(() => {
 
   return (
     <S.NavbarWrapper $scrolled={isScrolled}>
+
       {/* Logo & Brand */}
       <S.Container $gap="10px">
         <S.Logo src={navbarData.logo} alt="sanhs logo" />
@@ -107,6 +108,7 @@ const Navbar = memo(() => {
         </S.MobileMenu>
       </S.Overlay>
     </S.NavbarWrapper>
+
   );
 });
 

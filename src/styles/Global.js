@@ -12,21 +12,23 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${theme.font.family.body};
-    line-height: 1.6;
-    color: ${theme.color.primary};
+    color: ${theme.color.black};
     background: ${theme.color.background};
+    line-height: 1.5;
   }
 
 
-  body {
+  body, main {
     max-width: 1440px;
     margin: 0 auto;
     scroll-behavior: smooth;
+    position: relative;
   }
 
   section {
     width: 100%;
     padding: 112px 65px 80px;
+    background-color: ${theme.color.section};
 
     ${theme.media.tablet} {
       padding: 80px 30px 50px;
@@ -38,11 +40,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: "Poppins", sans-serif;
   }
 
   p, h1, h2, h3, h4, h5, h6, span, div {
     user-select: text;
+    margin: 0;
   }
 
   a {

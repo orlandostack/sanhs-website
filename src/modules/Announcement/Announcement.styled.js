@@ -4,20 +4,19 @@ import { Button } from "antd";
 
 export const AnnouncementWrapper = styled.section`
   height: auto;
-  background-color: white;
+  background-color: ${theme.color.section};
 `;
 
 export const Content = styled.div`
-  margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 50px;
 `;
 
 export const CardContainer = styled.div`
   width: 100%;
   height: auto;
-  gap: 1rem;
+  gap: 35px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;

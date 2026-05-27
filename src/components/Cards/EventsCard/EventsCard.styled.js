@@ -4,7 +4,6 @@ import theme from "../../../styles/Theme";
 export const EventsCardWrapper = styled.div`
   height: auto;
   width: 100%;
-  background-color: ${theme.color.white};
   display: grid;
   gap: 2.5rem;
   margin-top: 4rem;
@@ -23,10 +22,34 @@ export const EventsCardWrapper = styled.div`
   }
 `;
 
+export const Card = styled.div`
+  border-radius: ${theme.radius.xl};
+  background-color: ${theme.color.white};
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.20);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  padding: 20px;
+
+  &:hover {
+    background-color: ${theme.color.white};
+    transform: translateY(-8px);
+  }
+
+  ${theme.media.mobile} {
+    flex-direction: column;
+
+    &:hover {
+      transform: none;
+    }
+  }
+`;
+
 export const Date = styled.div`
-  border-radius: 8px 0 0 8px;
+  border-radius: 10px;
   height: 100%;
-  background-color: ${theme.color.primaryAccent};
+  background: linear-gradient(to bottom, ${theme.color.primary}, #324632);
   padding: 2rem;
   font-family: ${theme.font.family.heading};
   font-weight: bold;
@@ -45,12 +68,9 @@ export const Date = styled.div`
   }
 `;
 
-export const Details = styled.div`
-  font-family: ${theme.font.family};
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: ${theme.color.primaryAccent};
+export const EventTitle = styled.h3`
+  font-size: ${theme.font.size.lg};
+  font-weight: 500;
   flex: 1;
   padding: 0.5rem;
   transition: all 0.3s ease;
@@ -65,27 +85,4 @@ export const Details = styled.div`
   }
 `;
 
-export const Card = styled.div`
-  border-radius: ${theme.radius.md};
-  background-color: ${theme.color.white};
-  border: 1px solid ${theme.color.primary};
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: flex-start;
-  transition: all 0.3s ease;
 
-  &:hover {
-    box-shadow: ${theme.shadow.soft};
-    border-color: ${theme.color.primaryAccent};
-    background-color: ${theme.color.white};
-    transform: translateY(-8px);
-  }
-
-  ${theme.media.mobile} {
-    flex-direction: column;
-
-    &:hover {
-      transform: none;
-    }
-  }
-`;

@@ -9,7 +9,7 @@ export const CardWrapper = styled.div`
   background-color: ${theme.color.white};
   overflow: hidden;
   box-shadow: ${theme.shadow.soft};
-  border-radius: ${theme.radius.md};
+  border-radius: ${theme.radius.xl};
   border: 1px solid ${theme.color.gray[300]};
   transition: all 0.2s ease-in-out;
 
@@ -50,10 +50,132 @@ export const Content = styled.div`
   right: ${({ $right }) => $right};
 `;
 
+export const CardBody = styled.div`
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const CardHeader = styled.div`
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .card__header--logo {
+      object-fit: cover;
+      height: auto;
+      width: 4.375rem;
+    }
+`
+
+export const CardTitle = styled.h3`
+  font-size: ${theme.font.size["2xl"]};
+  font-weight: 500;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const CardDate = styled.p`
+  font-size: ${theme.font.size.sm};
+  color: ${theme.color.gray[500]};
+  font-weight: 500;
+`;
+
+export const DescriptionWrapper = styled.div`
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const CardDescription = styled.div`
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: -webkit-line-clamp 0.3s ease-in-out;
+  -webkit-line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "2")};
+  width: 100%;
+  line-height: 1.5;
+  
+  p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  p:not(:last-child)::after {
+    content: " ";
+  }
+`;
+
+export const ToggleButton = styled.button`
+  background: none;
+  border: none;
+  color: ${theme.color.primary};
+  cursor: pointer;
+  font-size: ${theme.font.size.sm};
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  transition: color 0.2s ease-in-out;
+  display: inline;
+  font-family: inherit;
+  text-align: left;
+  width: fit-content;
+  text-decoration: underline;
+
+  
+  &:hover {
+    color: ${theme.color.primary_dark};
+    text-decoration: underline;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+`;
+
+export const ToggleButtonExpanded = styled.button`
+  background: none;
+  border: none;
+  color: ${theme.color.primary};
+  cursor: pointer;
+  font-size: ${theme.font.size.sm};
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  transition: color 0.2s ease-in-out;
+  display: inline;
+  font-family: inherit;
+  width: fit-content;
+  
+  &:hover {
+    color: ${theme.color.primary_dark};
+    text-decoration: underline;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+`;
+
+export const CardThumbnail = styled.div`
   width: 100%;
   height: 300px;
   position: relative;
+  margin-top: 10px;
 
   ${theme.media.tablet} {
     width: 100%;
@@ -69,6 +191,7 @@ export const CardHeader = styled.div`
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 10px;
   }
 `;
 
@@ -80,6 +203,7 @@ export const Overlay = styled.div`
     rgba(0, 0, 0, 0.05),
     rgba(0, 0, 0, 0.5)
   );
+  border-radius: 10px;
 `;
 
 export const Overlay2 = styled.div`
@@ -93,56 +217,5 @@ export const Overlay2 = styled.div`
     transparent 50%,
     transparent 100%
   );
+  border-radius: 10px;
 `;
-
-export const CardDate = styled.h1`
-  margin: 0;
-  font-size: ${theme.font.size.sm};
-  color: ${theme.color.gray[500]};
-  font-weight: 500;
-`;
-
-export const CardBrand = styled.h2`
-  font-size: ${theme.font.size.base};
-  margin: 0;
-  color: ${theme.color.black};
-`;
-
-export const CardTitle = styled.h3`
-  font-size: ${theme.font.size.xl};
-  font-weight: 600;
-  color: ${theme.color.primaryAccent};
-  margin: 0;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2;
-`;
-
-export const CardBody = styled.div`
-  width: 100%;
-  height: auto;
-  padding: 10px 20px;
-  flex: 1;
-
-  p {
-    line-height: 1.5rem;
-  }
-
-  .wrapper {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-
-    img {
-      object-fit: cover;
-      height: auto;
-      width: 2.5rem;
-    }
-  }
-`;
-
-export const CardFooter = styled.div``;

@@ -3,21 +3,14 @@ import theme from "../../styles/Theme";
 
 // Section wrapper
 export const Wrapper = styled.section`
-  min-height: 100vh;
-  width: 100%;
-  padding: 3rem 0;
+padding-top: 20px;
   background-color: whitesmoke;
 `;
 
 // Content container
 export const Content = styled.div`
-  max-width: 85vw;
   display: flex;
   flex-direction: column;
-
-  ${theme.media.mobile} {
-    max-width: 92vw;
-  }
 `;
 
 // Header with section title + search input

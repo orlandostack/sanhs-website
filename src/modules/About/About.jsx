@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./About.styled";
 import { aboutData } from "../../data/aboutData";
 import Logo from "../../assets/logo.png";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 import { useAbout } from "../../utils/hooks/useAbout";
 
@@ -19,25 +20,31 @@ const About = ({ id }) => {
   return (
     <S.AboutWrapper>
       <S.Content id={id}>
-        <S.AboutHeader>
-          <img className="Logo" src={Logo} alt="SANHS Logo" />
-          <div className="Header">
-            <h1>{aboutData.school.name}</h1>
-            <h2>{aboutData.school.established}</h2>
-          </div>
-        </S.AboutHeader>
-        <S.AboutInfo className="Info" $isExpanded={isExpanded}>
-          {about?.aboutInfo.split("\n").map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))}
-        </S.AboutInfo>
+        <SectionTitle title="School Overview" subtitle="Discover the journey of San Antonio National High School in shaping generations of learners." />
 
-        <S.ToggleButton onClick={toggleExpand}>
-          {isExpanded ? "See Less" : "See More"}
-        </S.ToggleButton>
+        <S.AboutDetails>
+          <S.AboutHeader>
+            <img className="Logo" src={Logo} alt="SANHS Logo" />
+            <div className="Header">
+              <h2>{aboutData.school.name}</h2>
+              <p>{aboutData.school.established}</p>
+            </div>
+          </S.AboutHeader>
+          <S.AboutInfo className="Info" $isExpanded={isExpanded}>
+            {about?.aboutInfo.split("\n").map((line, i) => (
+              <React.Fragment key={i}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </S.AboutInfo>
+
+          <S.ToggleButton onClick={toggleExpand}>
+            {isExpanded ? "See Less" : "See More"}
+          </S.ToggleButton>
+        </S.AboutDetails>
+
+
         <S.Collage>
           <div className="LeftSide">
             <img src={thumbnails?.[0]?.url} alt="About Thumbnail 1" />

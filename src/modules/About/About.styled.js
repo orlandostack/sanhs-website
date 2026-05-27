@@ -4,33 +4,34 @@ import theme from "../../styles/Theme";
 export const AboutWrapper = styled.section`
   height: auto;
   width: 100%;
+  padding-top: 176px;
+  background-color: ${theme.color.section};
 
   ${theme.media.tablet} {
-    margin-top: 22rem;
+    margin-top: 26rem;
   }
 
   ${theme.media.mobile} {
-    margin-top: 22rem;
+    margin-top: 26rem;
   }
 `;
 
 export const Content = styled.div`
-  margin: auto;
-  padding-top: 4rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 50px;
 `;
+
+export const AboutDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+`
 
 export const AboutHeader = styled.div`
   display: flex;
   gap: 1.5rem;
-
-  ${theme.media.mobile} {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 
   .Logo {
     object-fit: contain;
@@ -42,25 +43,27 @@ export const AboutHeader = styled.div`
     display: flex;
     flex-direction: column;
 
-    h1 {
+    h2 {
       margin: 0;
-      color: ${theme.color.primaryAccent};
-      font-size: 1.8rem;
+      color: ${theme.color.black};
+      font-weight: 500;
+
 
       ${theme.media.mobile} {
         font-size: 1.3rem;
       }
     }
 
-    h2 {
+    p {
       margin: 0;
       color: ${theme.color.gray[600]};
-      font-size: 1.2rem;
-
-      ${theme.media.mobile} {
-        font-size: 1rem;
-      }
     }
+  }
+
+    ${theme.media.mobile} {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 `;
 
@@ -68,11 +71,8 @@ export const AboutInfo = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
   -webkit-line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "3")};
   line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "3")};
-
-  line-height: 1.6;
   text-align: justify;
   margin-bottom: 0;
 `;
@@ -80,13 +80,13 @@ export const AboutInfo = styled.p`
 export const ToggleButton = styled.button`
   background: none;
   border: none;
-  color: ${theme.color.primaryAccent};
   text-decoration: underline;
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   margin: 0 auto 1rem auto;
   display: block;
+  color: ${theme.color.primary};
 `;
 
 export const Collage = styled.div`
