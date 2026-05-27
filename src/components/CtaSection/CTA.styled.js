@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 
-export const CallToAction = styled.div`
+export const CtaSection = styled.section`
   background: linear-gradient(to right, #1d1f1d, #046a04, #008000);
   border-radius: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 4rem 2rem;
-  position: relative;
   box-sizing: border-box;
   gap: 2rem;
   position: relative;
-  
+
+  /* ── Text block ── */
   .cta-text {
     width: 60%;
     display: flex;
@@ -21,7 +21,7 @@ export const CallToAction = styled.div`
     min-width: 0;
   }
 
-  .cta-text h3 {
+  .cta-text h2 {
     margin: 0;
     color: ${theme.color.white};
     font-size: clamp(1.4rem, 2.5vw, 2.2rem);
@@ -36,27 +36,6 @@ export const CallToAction = styled.div`
     font-size: clamp(0.875rem, 1.2vw, 1.05rem);
     line-height: 1.6;
     opacity: 0.9;
-  }
-
-  .cta-text button {
-    align-self: flex-start;
-    padding: 0.875rem 2.5rem;
-    background-color: #008000;
-    color: ${theme.color.white};
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    font-weight: 600;
-    border: none;
-    border-radius: 0.6rem;
-    cursor: pointer;
-    transition:
-      transform 0.2s ease,
-      background-color 0.2s ease;
-    white-space: nowrap;
-
-    &:hover {
-      transform: scale(1.03);
-      background-color: #009900;
-    }
   }
 
   /* ── Image block ── */
@@ -110,10 +89,6 @@ export const CallToAction = styled.div`
       gap: 1rem;
     }
 
-    .cta-text button {
-      align-self: center;
-    }
-
     .cta-image {
       width: min(65%, 240px);
       margin: 0;
@@ -137,5 +112,37 @@ export const CallToAction = styled.div`
     .cta-image img {
       max-height: 140px;
     }
+  }
+`;
+
+export const CtaLink = styled.a`
+  align-self: flex-start;
+  padding: 0.875rem 2.5rem;
+  background-color: #008000;
+  color: ${theme.color.white};
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-weight: 600;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    background-color: #009900;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${theme.color.white};
+    outline-offset: 3px;
+  }
+
+  /* Center on mobile (set by parent .cta-text align-items: center) */
+  ${theme.media.mobile} {
+    align-self: center;
   }
 `;
