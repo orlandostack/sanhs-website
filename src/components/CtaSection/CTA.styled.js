@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import theme from "../../styles/Theme";
 
-export const CtaSection = styled.section`
+export const CtaSection = styled.section``
+
+export const CtaContent = styled.div`
   background: linear-gradient(to right, #1d1f1d, #046a04, #008000);
   border-radius: 2rem;
   display: flex;
