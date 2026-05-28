@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import SectionTitle from "../../components/SectionTitle";
 import BlogCarousel from "../../components/Carousel/BlogCarousel";
 import BlogCard from "../../components/Cards/BlogCard";
