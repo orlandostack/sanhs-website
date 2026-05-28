@@ -17,24 +17,24 @@ const Announcement = memo(({ id }) => {
   const { loading, error, announcements } = useAnnouncement();
   const navigate = useNavigate();
 
-  const handleViewAll = () => navigate("/announcementpage");
+  const handleViewAll = () => navigate("/announcements");
 
   if (loading)
     return (
       <S.AnnouncementWrapper id={id}>
-        <p>Loading announcements...</p>
-      </S.AnnouncementWrapper>
-    );
-  if (error)
-    return (
-      <S.AnnouncementWrapper id={id}>
-        <p>Failed to load announcements.</p>
+        <p role="status">Loading announcements...</p>
       </S.AnnouncementWrapper>
     );
 
-  const totalAnnouncements = announcements.length;
+  if (error)
+    return (
+      <S.AnnouncementWrapper id={id}>
+        <p role="alert">Failed to load announcements.</p>
+      </S.AnnouncementWrapper>
+    );
+
   const shouldShowViewAll =
-    totalAnnouncements > ANNOUNCEMENT_CONFIG.VIEW_ALL_THRESHOLD;
+    announcements.length > ANNOUNCEMENT_CONFIG.VIEW_ALL_THRESHOLD;
 
   const displayedAnnouncements = [...announcements]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -43,9 +43,9 @@ const Announcement = memo(({ id }) => {
   return (
     <S.AnnouncementWrapper id={id}>
       <S.Content>
-        <SectionTitle title="Announcements" subtitle="Latest Updates" />
+        <SectionTitle title="Announcements" subtitle="Latest Updates" level={2} />
         <S.CardContainer>
-          <Suspense fallback={<div>Loading cards...</div>}>
+          <Suspense fallback={<div role="status">Loading cards...</div>}>
             {displayedAnnouncements.map((item) => (
               <AnnouncementCard
                 key={item.announcementId}
@@ -58,13 +58,19 @@ const Announcement = memo(({ id }) => {
           </Suspense>
         </S.CardContainer>
 
-        {/* Conditionally render View All button */}
         {shouldShowViewAll && (
-          <S.ViewAllButton onClick={handleViewAll}>View All</S.ViewAllButton>
+          <S.ViewAllButton
+            onClick={handleViewAll}
+            aria-label="View all announcements"
+          >
+            View All
+          </S.ViewAllButton>
         )}
       </S.Content>
     </S.AnnouncementWrapper>
   );
 });
+
+Announcement.displayName = "Announcement";
 
 export default Announcement;

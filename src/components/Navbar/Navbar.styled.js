@@ -17,7 +17,8 @@ export const NavbarWrapper = styled.nav`
     $scrolled ? theme.color.white : theme.color.transparent};
   color: ${({ $scrolled }) =>
     $scrolled ? theme.color.primaryLight : theme.color.white};
-  box-shadow: ${({ $scrolled }) => ($scrolled ? theme.shadow.medium : "none")};
+  box-shadow: ${({ $scrolled }) =>
+    $scrolled ? theme.shadow.medium : "none"};
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease;
@@ -77,6 +78,9 @@ export const SubBrand = styled.h2`
 export const Navlinks = styled.ul`
   display: flex;
   gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   ${theme.media.tablet} {
     display: none;
@@ -92,7 +96,7 @@ export const Navitems = styled.li`
   a {
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     position: relative;
     padding: 5px 0;
 
@@ -101,9 +105,10 @@ export const Navitems = styled.li`
       font-weight: 600;
     }
 
+    /* Active state — colour adapts to scroll context */
     &.active {
       color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.white : theme.color.success};
+    $scrolled ? theme.color.success : theme.color.white};
       font-weight: 600;
 
       &::after {
@@ -114,12 +119,12 @@ export const Navitems = styled.li`
         width: 100%;
         height: 2px;
         background-color: ${({ $scrolled }) =>
-    $scrolled ? theme.color.white : theme.color.success};
+    $scrolled ? theme.color.success : theme.color.white};
         transform: scaleX(1);
-        transition: transform 0.3s ease;
       }
     }
 
+    /* Underline slide-in on hover */
     &::after {
       content: "";
       position: absolute;
@@ -127,12 +132,7 @@ export const Navitems = styled.li`
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: ${({ $active, $scrolled }) =>
-    $active
-      ? $scrolled
-        ? theme.color.success
-        : theme.color.white
-      : theme.color.success};
+      background-color: ${theme.color.success};
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s ease;
@@ -145,13 +145,14 @@ export const Navitems = styled.li`
   }
 `;
 
-/* MOBILE MENU ICON */
+/* ── Mobile menu toggle ── */
 export const MenuButton = styled.button`
   font-size: 30px;
   background: none;
   border: none;
   cursor: pointer;
   display: none;
+  padding: 4px;
 
   ${theme.media.tablet} {
     display: block;
@@ -170,12 +171,9 @@ export const Overlay = styled.div`
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  overflow-y: hidden;
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   pointer-events: ${({ $open }) => ($open ? "all" : "none")};
-
   transition: opacity 0.3s ease;
-
   z-index: 999;
 `;
 
@@ -184,22 +182,24 @@ export const MobileMenu = styled.ul`
   flex-direction: column;
   align-items: start;
   justify-content: start;
+  list-style: none;
+  margin: 0;
+  padding: 0 20px;
+
   position: fixed;
   top: -20px;
   left: 0;
   width: 280px;
   height: 100vh;
-  padding: 0 20px 0;
   border-radius: 0 1rem 1rem 0;
   color: ${theme.color.black};
-
   background: ${theme.color.white};
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
 
-  transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(-100%)")};
-
+  transform: ${({ $open }) =>
+    $open ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.35s ease-in-out;
-  z-index: 998;
+  z-index: 1000;
 
   ${theme.media.desktop} {
     display: none;
@@ -219,9 +219,8 @@ export const MobileItem = styled.li`
     width: 100%;
     position: relative;
     padding: 5px 0;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 
-    /* Active link underline for mobile */
     &.active {
       color: ${theme.color.success};
       font-weight: 600;
@@ -235,25 +234,11 @@ export const MobileItem = styled.li`
         height: 2px;
         background-color: ${theme.color.success};
         transform: scaleX(1);
-        transition: transform 0.3s ease;
       }
     }
 
     &:hover {
       color: ${theme.color.success};
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: ${theme.color.success};
-        transform: scaleX(1);
-        transform-origin: bottom left;
-        transition: transform 0.3s ease;
-      }
     }
 
     &::after {
@@ -267,6 +252,11 @@ export const MobileItem = styled.li`
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
   }
 `;

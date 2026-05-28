@@ -1,4 +1,4 @@
-import { motion as MOTION } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeIn, slideUp } from "../../utils/helpers/transitions/transitions";
 
 import Navbar from "../../components/Navbar";
@@ -10,72 +10,51 @@ import Announcement from "../../modules/Announcement";
 import Events from "../../modules/Events";
 import CTA from "../../components/CtaSection/CTA";
 
+const inView = {
+  initial: "hidden",
+  whileInView: "visible",
+  viewport: { once: true, margin: "-100px" },
+};
+
 const LandingPage = () => {
   return (
-    <>
-      <main className="page--homepage">
-        <Navbar />
+    <main className="page--homepage">
+      <Navbar />
 
-        <MOTION.div variants={fadeIn} initial="hidden" animate="visible">
-          <Hero id="hero" />
-        </MOTION.div>
+      {/*
+        Each module renders its own <section> (the styled wrapper).
+        We wrap that section in a motion.div so Framer Motion always
+        gets a real DOM element as its ref target — no forwardRef
+        threading through styled-components needed.
+      */}
+      <motion.div variants={fadeIn} initial="hidden" animate="visible">
+        <Hero id="hero" />
+      </motion.div>
 
-        <MOTION.div
-          variants={slideUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <About id="about" />
-        </MOTION.div>
+      <motion.div variants={slideUp} {...inView}>
+        <About id="about" />
+      </motion.div>
 
-        <MOTION.div
-          variants={slideUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <Blog id="blogs" />
-        </MOTION.div>
+      <motion.div variants={slideUp} {...inView}>
+        <Blog id="blogs" />
+      </motion.div>
 
-        <MOTION.div
-          variants={slideUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <Announcement id="announcement" />
-        </MOTION.div>
+      <motion.div variants={slideUp} {...inView}>
+        <Announcement id="announcement" />
+      </motion.div>
 
-        <MOTION.div
-          variants={slideUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <Events id="events" />
-        </MOTION.div>
+      <motion.div variants={slideUp} {...inView}>
+        <Events id="events" />
+      </motion.div>
 
-        <MOTION.section
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <CTA id="call-to-action" />
-        </MOTION.section>
+      <motion.div variants={fadeIn} {...inView}>
+        <CTA id="call-to-action" />
+      </motion.div>
 
-        <MOTION.footer
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <Footer id="footer" />
-        </MOTION.footer>
-      </main>
-
-    </>
+      <motion.div variants={fadeIn} {...inView}>
+        <Footer id="footer" />
+      </motion.div>
+    </main>
   );
 };
 

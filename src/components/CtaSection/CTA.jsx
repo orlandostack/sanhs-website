@@ -1,18 +1,18 @@
-import React from "react";
+import { memo } from "react";
 import * as S from "./CTA.styled";
 import CTAImage from "../../assets/cta-image.png";
 
 const MESSENGER_LINK = "https://web.facebook.com/messages/t/111547480581135";
 
-const CTA = () => {
+const CTA = memo(({ id }) => {
     return (
-        <S.CtaSection aria-labelledby="cta-heading">
+        <S.CtaSection id={id} aria-labelledby="cta-heading">
             <div className="cta-text">
                 <h2 id="cta-heading">Let's Talk — We're Here to Help</h2>
                 <p>
                     Have questions about enrollment, academic programs, or school
-                    activities? Reach out to us anytime — our team is ready to guide you
-                    every step of the way.
+                    activities? Reach out to us anytime — our team is ready to guide
+                    you every step of the way.
                 </p>
                 <S.CtaLink
                     href={MESSENGER_LINK}
@@ -36,6 +36,8 @@ const CTA = () => {
             </div>
         </S.CtaSection>
     );
-};
+});
+
+CTA.displayName = "CTA";
 
 export default CTA;

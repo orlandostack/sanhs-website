@@ -1,7 +1,6 @@
-// src/modules/Hero/Hero.jsx
 import { memo, useState } from "react";
 import { Link } from "react-scroll";
-import { motion as MOTION } from "framer-motion";
+import { motion } from "framer-motion";
 import { slideUp } from "../../utils/helpers/transitions/transitions";
 import * as S from "./Hero.styled";
 import { heroData } from "../../data/heroData";
@@ -9,8 +8,9 @@ import HeroButton from "../../components/Button/HeroButton/HeroButton";
 import HeroCard from "../../components/Cards/HeroCard/HeroCard";
 import theme from "../../styles/Theme";
 import HeroModal from "../../components/Modal/HeroModal";
-
 import { useMvp } from "../../utils/hooks/useMvp";
+
+const MotionDiv = motion.div;
 
 const Hero = memo(({ id }) => {
   const [activeModal, setActiveModal] = useState(null);
@@ -18,62 +18,69 @@ const Hero = memo(({ id }) => {
 
   const modalContent = (() => {
     if (!mvp || !activeModal) return "";
-
     return mvp[activeModal.id];
   })();
 
+  const handleOpenModal = (item) => setActiveModal(item);
+  const handleCloseModal = () => setActiveModal(null);
+
   return (
     <S.HeroWrapper id={id}>
-      <S.Background>
+      <S.Background aria-hidden="true">
         <S.Overlay1 />
         <S.Overlay2 />
       </S.Background>
 
       <S.Content>
-        <MOTION.div
+        <MotionDiv
           variants={slideUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           <S.Heading>{heroData.heading}</S.Heading>
-        </MOTION.div>
-        <MOTION.div
+        </MotionDiv>
+
+        <MotionDiv
           variants={slideUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           <S.Subheading>{heroData.subheading}</S.Subheading>
-        </MOTION.div>
+        </MotionDiv>
 
-        <MOTION.div
+        <MotionDiv
           variants={slideUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           <S.Container $margin="20px 0" $gap="2rem">
-            <Link to="footer" smooth duration={1000} spy={true}>
+            <Link to="footer" smooth duration={1000} spy>
               <HeroButton
                 $bgColor={theme.color.primary}
                 $border={theme.color.primary}
+                aria-label="Contact us"
               >
                 {heroData.primaryButton}
               </HeroButton>
             </Link>
-            <Link to="announcement" smooth duration={1000} spy={true}>
-              <HeroButton $bgColor={theme.color.transparent}>
+            <Link to="announcement" smooth duration={1000} spy>
+              <HeroButton
+                $bgColor={theme.color.transparent}
+                aria-label="View announcements"
+              >
                 {heroData.secondaryButton}
               </HeroButton>
             </Link>
           </S.Container>
-        </MOTION.div>
+        </MotionDiv>
       </S.Content>
 
       <S.CardContainer>
         {heroData.heroCard.map((item) => (
-          <MOTION.div
+          <MotionDiv
             key={item.id}
             variants={slideUp}
             initial="hidden"
@@ -84,15 +91,15 @@ const Hero = memo(({ id }) => {
               logo={item.logo}
               title={item.title}
               subtitle={item.subtitle}
-              onClick={() => setActiveModal(item)}
+              onClick={() => handleOpenModal(item)}
             />
-          </MOTION.div>
+          </MotionDiv>
         ))}
       </S.CardContainer>
 
       <HeroModal
         open={!!activeModal}
-        onClose={() => setActiveModal(null)}
+        onClose={handleCloseModal}
         title={activeModal?.title}
         content={
           loading
@@ -105,5 +112,7 @@ const Hero = memo(({ id }) => {
     </S.HeroWrapper>
   );
 });
+
+Hero.displayName = "Hero";
 
 export default Hero;

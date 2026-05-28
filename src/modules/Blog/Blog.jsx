@@ -1,12 +1,12 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion as MOTION } from "framer-motion";
+import { motion } from "framer-motion";
 import SectionTitle from "../../components/SectionTitle";
 import BlogCarousel from "../../components/Carousel/BlogCarousel";
 import BlogCard from "../../components/Cards/BlogCard";
 import { useBlog } from "../../utils/hooks/useBlog";
 import * as S from "./Blog.styled";
-import { fadeIn, fadeInUp } from "../../utils/helpers/transitions/transitions";
+import { fadeIn } from "../../utils/helpers/transitions/transitions";
 
 const BLOG_CONFIG = {
   DISPLAY_LIMIT: 3,
@@ -16,9 +16,7 @@ const BLOG_CONFIG = {
 const Blog = memo(({ id }) => {
   const navigate = useNavigate();
 
-  const handleViewAll = () => {
-    navigate("/blogpage");
-  };
+  const handleViewAll = () => navigate("/blog");
 
   return (
     <S.BlogWrapper id={id}>
@@ -27,13 +25,12 @@ const Blog = memo(({ id }) => {
   );
 });
 
-export default Blog;
+Blog.displayName = "Blog";
 
 const BlogContent = memo(({ onViewAll, config }) => {
-  const { loading, error, blogs } = useBlog();
+  const { blogs } = useBlog();
 
-  const totalBlogs = blogs.length;
-  const shouldShowViewAll = totalBlogs > config.VIEW_ALL_THRESHOLD;
+  const shouldShowViewAll = blogs.length > config.VIEW_ALL_THRESHOLD;
 
   return (
     <S.Content>
@@ -42,17 +39,26 @@ const BlogContent = memo(({ onViewAll, config }) => {
         subtitle="School Highlights & Features"
       />
 
-      <MOTION.div
+      <motion.div
         variants={fadeIn}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <BlogCarousel />
-        <S.ButtonWrapper>
-          <S.ViewAllButton onClick={onViewAll}>View all</S.ViewAllButton>
-        </S.ButtonWrapper>
-      </MOTION.div>
+
+        {shouldShowViewAll && (
+          <S.ButtonWrapper>
+            <S.ViewAllButton onClick={onViewAll} aria-label="View all blog posts">
+              View all
+            </S.ViewAllButton>
+          </S.ButtonWrapper>
+        )}
+      </motion.div>
     </S.Content>
   );
 });
+
+BlogContent.displayName = "BlogContent";
+
+export default Blog;

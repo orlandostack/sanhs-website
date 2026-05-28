@@ -26,20 +26,19 @@ export const AboutDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
-`
+`;
 
 export const AboutHeader = styled.div`
   display: flex;
   gap: 1.5rem;
 
-  .Logo {
+  .logo {
     object-fit: contain;
     height: auto;
     width: 4.5rem;
   }
 
-  .Header {
+  .header {
     display: flex;
     flex-direction: column;
 
@@ -47,7 +46,6 @@ export const AboutHeader = styled.div`
       margin: 0;
       color: ${theme.color.black};
       font-weight: 500;
-
 
       ${theme.media.mobile} {
         font-size: 1.3rem;
@@ -60,7 +58,7 @@ export const AboutHeader = styled.div`
     }
   }
 
-    ${theme.media.mobile} {
+  ${theme.media.mobile} {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -83,10 +81,14 @@ export const ToggleButton = styled.button`
   text-decoration: underline;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   margin: 0 auto 1rem auto;
   display: block;
   color: ${theme.color.primary};
+
+  &:hover {
+    color: ${theme.color.primaryDark};
+  }
 `;
 
 export const Collage = styled.div`
@@ -97,24 +99,25 @@ export const Collage = styled.div`
 
   ${theme.media.mobile} {
     flex-direction: column;
+    height: auto;
   }
 
-  .LeftSide {
+  .left-side {
     width: 65%;
 
     ${theme.media.mobile} {
       width: 100%;
     }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
   }
 
-  .LeftSide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .RightSide {
+  .right-side {
     width: 35%;
     display: flex;
     flex-direction: column;
@@ -123,13 +126,13 @@ export const Collage = styled.div`
     ${theme.media.mobile} {
       width: 100%;
     }
-  }
 
-  .RightSide img {
-    width: 100%;
-    height: 29vh;
-    object-fit: cover;
-    border-radius: 8px;
-    flex: 1;
+    img {
+      width: 100%;
+      height: 29vh;
+      object-fit: cover;
+      border-radius: 8px;
+      flex: 1;
+    }
   }
 `;

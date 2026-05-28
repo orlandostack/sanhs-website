@@ -17,7 +17,8 @@ export const Collage = styled.div`
     height: auto;
   }
 
-  .LeftSide {
+  /* ── Left (featured) ── */
+  .left-side {
     width: 65%;
     position: relative;
     border-radius: 1rem;
@@ -32,28 +33,34 @@ export const Collage = styled.div`
     }
   }
 
-  .LeftSide .card {
+  .left-side .card {
     width: 100%;
     height: 100%;
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    display: block;
+
+    &:focus-visible {
+      outline: 3px solid ${theme.color.primaryAccent};
+      outline-offset: 2px;
+    }
   }
 
-  .LeftSide .card img {
+  .left-side .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    cursor: pointer;
     transition: transform 0.3s ease-in-out;
   }
 
-  .LeftSide .card:hover img {
+  .left-side .card:hover img {
     transform: scale(1.03);
   }
 
-  .RightSide {
+  /* ── Right (secondary) ── */
+  .right-side {
     width: 35%;
     display: flex;
     flex-direction: column;
@@ -70,38 +77,37 @@ export const Collage = styled.div`
     }
   }
 
-  .RightSide .card {
+  .right-side .card {
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
     flex: 1;
     cursor: pointer;
+    display: block;
+
+    &:focus-visible {
+      outline: 3px solid ${theme.color.primaryAccent};
+      outline-offset: 2px;
+    }
   }
 
-  .RightSide .card img {
+  .right-side .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    cursor: pointer;
     transition: transform 0.3s ease-in-out;
   }
 
-  .RightSide .card:hover img {
+  .right-side .card:hover img {
     transform: scale(1.03);
   }
 
+  /* ── Shared overlay ── */
   .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -114,10 +120,9 @@ export const Collage = styled.div`
   }
 
   .title {
-    margin: 0;
+    margin: 0 0 0.5rem;
     font-size: 1.25rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
     line-height: 1.3;
 
     ${theme.media.mobile} {
@@ -126,11 +131,10 @@ export const Collage = styled.div`
   }
 
   .subtitle {
-    margin: 0;
+    margin: 0 0 0.5rem;
     font-size: 0.9rem;
     opacity: 0.9;
     line-height: 1.4;
-    margin-bottom: 0.5rem;
 
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -145,7 +149,8 @@ export const Collage = styled.div`
     font-style: italic;
   }
 
-  .LeftSide .title {
+  /* ── Left-side overrides ── */
+  .left-side .title {
     font-size: 1.5rem;
 
     ${theme.media.mobile} {
@@ -153,11 +158,11 @@ export const Collage = styled.div`
     }
   }
 
-  .LeftSide .subtitle {
+  .left-side .subtitle {
     font-size: 1rem;
   }
 
-  .LeftSide .date {
+  .left-side .date {
     font-size: 0.9rem;
   }
 `;
