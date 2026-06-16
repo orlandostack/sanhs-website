@@ -1,12 +1,13 @@
-import AppRoute from "./route/AppRoute";
-import GlobalStyle from "./styles/Global";
+// import AppRoute from "./route/AppRoute";
+// import GlobalStyle from "./styles/Global";
+import RestrictionPage from "./pages/RestrictionPage";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <AppRoute />
-
+      {/* <GlobalStyle />
+      <AppRoute /> */}
+      <RestrictionPage />
     </>
   );
 }
