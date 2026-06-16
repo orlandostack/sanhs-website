@@ -62,7 +62,7 @@ export const BrandText = styled.div`
 
 export const Brand = styled.span`
   font-size: ${theme.font.size["3xl"]};
-  font-weight: 800;
+  font-weight: 500;
   color: ${({ $scrolled }) =>
     $scrolled ? theme.color.primaryLight : theme.color.white};
   transition: color 0.3s ease;
