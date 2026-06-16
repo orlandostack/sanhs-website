@@ -89,7 +89,7 @@ const RestrictionPage = () => {
 
         {/* ── CTA ── */}
         <S.CTAGroup>
-          <S.PrimaryButton href="https://vercel.com/pricing">
+          <S.PrimaryButton href="https://vercel.com/pricing" target='_blank'>
             Visit Vercel Payment
           </S.PrimaryButton>
           <S.SecondaryLink as="span">
