@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './RestrictionPage.styled';
 
 const SERVICES = [
-  'Website Hosting',
+  'Lifetime Website Hosting using Vercel Subdomain (vercel.app)',
   'Global Deployment Infrastructure',
   'SSL Certificate Management',
   'Continuous Deployment',
