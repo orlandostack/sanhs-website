@@ -58,20 +58,6 @@ const RestrictionPage = () => {
           </S.CardBodySecondary>
         </S.Card>
 
-        {/* ── Card 2 — Services Included ── */}
-        <S.Card>
-          <S.CardTitle>Hosting Services Included</S.CardTitle>
-          <S.CardDivider />
-          <S.ServicesList>
-            {SERVICES.map((service) => (
-              <S.ServiceItem key={service}>
-                <S.ServiceCheck>✓</S.ServiceCheck>
-                {service}
-              </S.ServiceItem>
-            ))}
-          </S.ServicesList>
-        </S.Card>
-
         {/* ── Card 3 — Required Action ── */}
         <S.ActionCard>
           <S.CardTitle>Required Action</S.CardTitle>
@@ -86,6 +72,22 @@ const RestrictionPage = () => {
             update the project at any time.
           </S.CardBodySecondary>
         </S.ActionCard>
+
+        {/* ── Card 2 — Services Included ── */}
+        <S.Card>
+          <S.CardTitle>Hosting Services Included</S.CardTitle>
+          <S.CardDivider />
+          <S.ServicesList>
+            {SERVICES.map((service) => (
+              <S.ServiceItem key={service}>
+                <S.ServiceCheck>✓</S.ServiceCheck>
+                {service}
+              </S.ServiceItem>
+            ))}
+          </S.ServicesList>
+        </S.Card>
+
+
 
         {/* ── CTA ── */}
         <S.CTAGroup>
