@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import * as S from "./BlogContent.styled";
 import { useBlog } from "../../utils/hooks/useBlog";
 import { FaCalendarAlt } from "react-icons/fa";
+import CTA from "../../components/CtaSection/CTA";
 
 
 const BlogContent = () => {
@@ -127,6 +128,7 @@ const BlogContent = () => {
         </S.Content>
       </S.Wrapper>
 
+      <CTA />
       <Footer />
     </>
   );

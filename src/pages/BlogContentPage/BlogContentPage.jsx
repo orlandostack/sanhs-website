@@ -4,14 +4,17 @@ import { fadeInUp } from "../../utils/helpers/transitions/transitions";
 
 const BlogContentPage = () => {
   return (
-    <MOTION.div
-      variants={fadeInUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
-      <BlogContent />
-    </MOTION.div>
+    <>
+      <MOTION.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <BlogContent />
+      </MOTION.div>
+
+    </>
   );
 };
 

@@ -1,17 +1,23 @@
+// src/data/navbarData.js
 import Logo from "../assets/logo.png";
-import { IoMdMenu } from "react-icons/io";
+import {
+  IoHomeOutline,
+  IoInformationCircleOutline,
+  IoNewspaperOutline,
+  IoMegaphoneOutline,
+  IoMailOutline,
+} from "react-icons/io5";
 
 export const navbarData = {
   logo: Logo,
   brand: "SANHS",
   subBrand: "San Antonio National High School",
-  menu: IoMdMenu,
 
   links: [
-    { name: "Home", to: "hero" },
-    { name: "About", to: "about" },
-    { name: "Blogs", to: "blogs" },
-    { name: "Announcement", to: "announcement" },
-    { name: "Contact", to: "footer" },
+    { name: "Home", to: "hero", icon: IoHomeOutline },
+    { name: "About", to: "about", icon: IoInformationCircleOutline },
+    { name: "Blogs", to: "blogs", icon: IoNewspaperOutline },
+    { name: "Announcement", to: "announcement", icon: IoMegaphoneOutline },
+    { name: "Contact", to: "footer", icon: IoMailOutline },
   ],
 };

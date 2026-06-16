@@ -24,8 +24,8 @@ const BlogPage = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <CTA />
       </MOTION.section>
+      <CTA />
 
       {/* FOOTER SECTION */}
       <Footer />
