@@ -24,17 +24,17 @@ const RestrictionPage = () => {
         {/* ── Hero ── */}
         <S.Hero>
           <S.Badge>Account Status Notification</S.Badge>
-          <S.HeroTitle>Service Access Temporarily Limited</S.HeroTitle>
+          <S.HeroTitle>Service Access for Beta Testing</S.HeroTitle>
           <S.HeroDescription>
-            <p>This deployment is currently unable to serve public traffic.</p>
+            <p>This deployment devtools is currently able to serve public traffic.</p>
             <p>
-              The free trial period for beta testing on this hosting account
-              has expired. As a result, access to this application has been
-              temporarily restricted until an active subscription is in place.
+              The access for beta testing on this hosting account
+              is currently active. As a result, access to this application is
+              able to have an active subscription in place.
             </p>
             <p>
-              Once the hosting account has been reactivated, service
-              availability will be restored automatically.
+              Once the hosting account has been deactivated, service
+              availability will be unavailable automatically.
             </p>
           </S.HeroDescription>
         </S.Hero>
@@ -45,12 +45,12 @@ const RestrictionPage = () => {
           <S.CardDivider />
           <S.StatusLabel>
             <S.StatusDot />
-            <S.StatusName>Beta Trial Expired — Subscription Required</S.StatusName>
+            <S.StatusName>Beta Testing Active — Subscribed</S.StatusName>
           </S.StatusLabel>
           <S.CardBody>
-            Access to this deployment has been temporarily restricted because
-            the free beta testing trial for this hosting account has expired
-            and no active subscription is currently in place.
+            Access to this deployment is currently active because
+            the beta testing for this hosting account has succesfully activated
+            and have active subscription currently in place.
           </S.CardBody>
           <S.CardBodySecondary>
             Project files and deployment configuration remain preserved within
@@ -77,11 +77,11 @@ const RestrictionPage = () => {
           <S.CardTitle>Required Action</S.CardTitle>
           <S.CardDivider />
           <S.CardBody>
-            A one-time payment of <strong>₱5,000</strong> is now available to
-            reactivate and permanently settle this hosting account.
+            A payment of <strong>₱5,000</strong> is has been made to
+            activate and permanently settle this hosting account.
           </S.CardBody>
           <S.CardBodySecondary>
-            This one-time payment includes lifetime free web hosting for this
+            This payment includes lifetime free web hosting for this
             deployment, along with continued developer access to manage and
             update the project at any time.
           </S.CardBodySecondary>

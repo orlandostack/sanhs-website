@@ -17,9 +17,9 @@ const t = {
   borderHover: "#d1d5db",
   primary: "#0070f3",
   primaryHover: "#0060df",
-  warnBg: "rgba(245, 158, 11, 0.10)",
-  warnBorder: "rgba(245, 158, 11, 0.35)",
-  warnText: "#b45309",
+  warnBg: "rgba(77, 245, 11, 0.1)",
+  warnBorder: "rgba(85, 245, 11, 0.35)",
+  warnText: "#09b426",
 };
 
 /* ── Page shell ───────────────────────────────────────────── */
