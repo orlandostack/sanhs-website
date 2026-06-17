@@ -95,7 +95,7 @@ const RestrictionPage = () => {
             Visit Vercel Payment
           </S.PrimaryButton>
           <S.SecondaryLink as="span">
-            Contact your developers for further and safe technical assistance
+            Whether you're a business owner or an institution, contact your developers to handle the web hosting payment setup for a smoother, safer, and error-free experience.
           </S.SecondaryLink>
         </S.CTAGroup>
 
