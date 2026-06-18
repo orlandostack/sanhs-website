@@ -66,7 +66,7 @@ export const Content = styled.div`
 `;
 
 export const Heading = styled.h1`
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
 
   ${theme.media.mobile} {

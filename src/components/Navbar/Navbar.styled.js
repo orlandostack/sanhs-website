@@ -25,6 +25,8 @@ export const NavbarWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 10px 65px;
+  margin: 0 auto;
+  max-width: 1440px;
 
   background-color: ${({ $scrolled }) =>
     $scrolled ? "rgba(255, 255, 255, 0.97)" : "transparent"};

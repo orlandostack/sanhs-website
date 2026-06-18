@@ -4,7 +4,7 @@ import BgImage from "../assets/bg-image.png";
 
 export const heroData = {
   bgImage: BgImage,
-  heading: "Where Learning Meets Excellence",
+  heading: "Sa SANHS Karunungan at Kaunlaran Pinahahalagahan",
   subheading:
     "Shaping Future-Ready Learners at San Antonio National High School",
 
