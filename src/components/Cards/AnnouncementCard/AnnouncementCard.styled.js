@@ -60,17 +60,17 @@ export const CardBody = styled.div`
 `;
 
 export const CardHeader = styled.div`
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
 
-    .card__header--logo {
-      object-fit: cover;
-      height: auto;
-      width: 4.375rem;
-    }
-`
+  .card__header--logo {
+    object-fit: cover;
+    height: auto;
+    width: 4.375rem;
+  }
+`;
 
 export const CardTitle = styled.h3`
   font-size: ${theme.font.size["2xl"]};
@@ -107,7 +107,7 @@ export const CardDescription = styled.div`
   -webkit-line-clamp: ${({ $isExpanded }) => ($isExpanded ? "unset" : "2")};
   width: 100%;
   line-height: 1.5;
-  
+
   p {
     margin: 0;
     padding: 0;
@@ -116,6 +116,17 @@ export const CardDescription = styled.div`
 
   p:not(:last-child)::after {
     content: " ";
+  }
+`;
+
+export const OtherLinks = styled.a`
+  color: ${theme.color.primary};
+  margin-top: 1rem;
+  text-decoration: underline;
+
+  &:hover {
+    color: ${theme.color.primaryDark};
+    text-decoration: underline;
   }
 `;
 
@@ -133,12 +144,9 @@ export const ToggleButton = styled.button`
   font-family: inherit;
   text-align: left;
   width: fit-content;
-  text-decoration: underline;
 
-  
   &:hover {
     color: ${theme.color.primary_dark};
-    text-decoration: underline;
   }
 
   &:active {
@@ -160,7 +168,7 @@ export const ToggleButtonExpanded = styled.button`
   display: inline;
   font-family: inherit;
   width: fit-content;
-  
+
   &:hover {
     color: ${theme.color.primary_dark};
     text-decoration: underline;

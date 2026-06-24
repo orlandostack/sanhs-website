@@ -53,7 +53,7 @@ const AnnouncementCard = memo(({ img, date, title, body }) => {
             </S.CardDescription>
             {!isExpanded && isOverflowing && (
               <S.ToggleButton onClick={toggleExpand}>
-                see more
+                see more...
               </S.ToggleButton>
             )}
           </S.DescriptionWrapper>
@@ -63,6 +63,9 @@ const AnnouncementCard = memo(({ img, date, title, body }) => {
               see less
             </S.ToggleButtonExpanded>
           )}
+
+          <S.OtherLinks href="" target="_blank" rel="noopener noreferrer">Other Links</S.OtherLinks>
+
 
           <S.CardThumbnail>
             <S.Overlay className="overlay" />
