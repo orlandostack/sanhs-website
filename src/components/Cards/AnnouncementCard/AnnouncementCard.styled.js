@@ -123,6 +123,7 @@ export const OtherLinks = styled.a`
   color: ${theme.color.primary};
   margin-top: 1rem;
   text-decoration: underline;
+  font-size: clamp(0.875rem, 3vw, 1rem);
 
   &:hover {
     color: ${theme.color.primaryDark};

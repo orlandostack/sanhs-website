@@ -1,6 +1,7 @@
 // src\route\AppRoute.jsx
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "../utils/ScrollToTop";
 
 // Lazy-load pages for code splitting / better performance
 const LandingPage = lazy(() => import("../pages/LandingPage"));
@@ -19,6 +20,7 @@ const AppRoute = () => {
   return (
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/blog/:blogId" element={<BlogContentPage />} />
