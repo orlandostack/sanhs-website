@@ -15,6 +15,7 @@ export const HeroWrapper = styled.section`
 
   ${theme.media.mobile} {
     padding-top: 120px;
+    height: 90vh;
   }
 `;
 
@@ -66,12 +67,8 @@ export const Content = styled.div`
 `;
 
 export const Heading = styled.h1`
-  font-size: 40px;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 600;
-
-  ${theme.media.mobile} {
-    font-size: ${theme.font.size["3xl"]};
-  }
 `;
 
 export const Subheading = styled.p`
