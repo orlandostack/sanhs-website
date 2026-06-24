@@ -81,6 +81,21 @@ const Navbar = memo(() => {
   };
 
   const renderDesktopLink = (link) => {
+    // ── Page-route link (e.g. /downloads) ──────────────────
+    if (link.isRoute) {
+      return (
+        <RouterLink
+          key={link.to}
+          to={`/${link.to}`}
+          onClick={handleCloseMenu}
+          className={location.pathname === `/${link.to}` ? "active" : ""}
+        >
+          {link.name}
+        </RouterLink>
+      );
+    }
+
+    // ── Scroll link (landing page sections) ────────────────
     if (isLandingPage) {
       return (
         <ScrollLink key={link.to} to={link.to} {...scrollProps} onClick={handleCloseMenu}>
@@ -88,6 +103,8 @@ const Navbar = memo(() => {
         </ScrollLink>
       );
     }
+
+    // ── Off-page scroll link ────────────────────────────────
     return (
       <RouterLink
         key={link.to}
@@ -101,6 +118,20 @@ const Navbar = memo(() => {
   };
 
   const renderMobileLink = (link) => {
+    // ── Page-route link (e.g. /downloads) ──────────────────
+    if (link.isRoute) {
+      return (
+        <RouterLink
+          key={link.to}
+          to={`/${link.to}`}
+          onClick={handleCloseMenu}
+        >
+          {link.name}
+        </RouterLink>
+      );
+    }
+
+    // ── Scroll link (landing page sections) ────────────────
     if (isLandingPage) {
       return (
         <ScrollLink key={link.to} to={link.to} {...scrollProps} onClick={handleCloseMenu}>
@@ -108,6 +139,8 @@ const Navbar = memo(() => {
         </ScrollLink>
       );
     }
+
+    // ── Off-page scroll link ────────────────────────────────
     return (
       <RouterLink
         key={link.to}
@@ -183,11 +216,21 @@ const Navbar = memo(() => {
           {navbarData.links.map((link, index) => (
             <S.MobileItem
               key={link.to}
-              $active={activeLink === link.to}
+              $active={
+                link.isRoute
+                  ? location.pathname === `/${link.to}`
+                  : activeLink === link.to
+              }
               $index={index}
               $open={isMenuOpen}
             >
-              <S.MobileItemInner $active={activeLink === link.to}>
+              <S.MobileItemInner
+                $active={
+                  link.isRoute
+                    ? location.pathname === `/${link.to}`
+                    : activeLink === link.to
+                }
+              >
                 <S.LinkIcon>{link.icon && <link.icon />}</S.LinkIcon>
                 {renderMobileLink(link)}
               </S.MobileItemInner>

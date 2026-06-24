@@ -6,6 +6,7 @@ import {
   IoNewspaperOutline,
   IoMegaphoneOutline,
   IoMailOutline,
+  IoDownloadOutline,
 } from "react-icons/io5";
 
 export const navbarData = {
@@ -19,5 +20,11 @@ export const navbarData = {
     { name: "Blogs", to: "blogs", icon: IoNewspaperOutline },
     { name: "Announcement", to: "announcement", icon: IoMegaphoneOutline },
     { name: "Contact", to: "footer", icon: IoMailOutline },
+    {
+      name: "Download Forms",
+      to: "downloads",
+      icon: IoDownloadOutline,
+      isRoute: true,
+    },
   ],
 };
