@@ -10,6 +10,7 @@ export const GET_ANNOUNCEMENT = gql`
       }
       content
       date
+      link
     }
   }
 `;

@@ -4,8 +4,8 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import * as S from "./Announcement.styled";
 import { useAnnouncement } from "../../utils/hooks/useAnnouncement";
 
-const AnnouncementCard = lazy(() =>
-  import("../../components/Cards/AnnouncementCard/AnnouncementCard")
+const AnnouncementCard = lazy(
+  () => import("../../components/Cards/AnnouncementCard/AnnouncementCard"),
 );
 
 const ANNOUNCEMENT_CONFIG = {
@@ -43,7 +43,11 @@ const Announcement = memo(({ id }) => {
   return (
     <S.AnnouncementWrapper id={id}>
       <S.Content>
-        <SectionTitle title="Announcements" subtitle="Latest Updates" level={2} />
+        <SectionTitle
+          title="Announcements"
+          subtitle="Latest Updates"
+          level={2}
+        />
         <S.CardContainer>
           <Suspense fallback={<div role="status">Loading cards...</div>}>
             {displayedAnnouncements.map((item) => (
@@ -53,6 +57,7 @@ const Announcement = memo(({ id }) => {
                 date={item.date}
                 title={item.title}
                 body={item.content}
+                link={item.link}
               />
             ))}
           </Suspense>

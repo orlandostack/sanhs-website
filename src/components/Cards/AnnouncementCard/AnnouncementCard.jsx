@@ -2,7 +2,7 @@ import { memo, useState, useRef, useEffect } from "react";
 import * as S from "./AnnouncementCard.styled";
 import Logo from "../../../assets/logo.png";
 
-const AnnouncementCard = memo(({ img, date, title, body }) => {
+const AnnouncementCard = memo(({ img, date, title, body, link }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
   const descriptionRef = useRef(null);
@@ -64,8 +64,9 @@ const AnnouncementCard = memo(({ img, date, title, body }) => {
             </S.ToggleButtonExpanded>
           )}
 
-          <S.OtherLinks href="" target="_blank" rel="noopener noreferrer">Other Links</S.OtherLinks>
-
+          <S.OtherLinks href={link} target="_blank" rel="noopener noreferrer">
+            Other Links
+          </S.OtherLinks>
 
           <S.CardThumbnail>
             <S.Overlay className="overlay" />
